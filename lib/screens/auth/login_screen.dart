@@ -4,7 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../const/const_router.dart';
 import '../../services/auth/auth_validators.dart';
 import '../../services/get_it/get_instance.dart';
+import '../../theme/theme_color.dart';
 import '../../theme/theme_text.dart';
+import '../../widgets/custom_appbar/button_appbar.dart';
+import '../../widgets/custom_appbar/custom_appbar.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/dynamic_input_widget.dart';
 
@@ -90,8 +93,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
+      backgroundColor: ThemeColors.background,
+      appBar: CustomAppbar(
+        title: 'Login',
+        iconLeft: IconAppbar.back,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -133,26 +138,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 20,
                 ),
 
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 500),
-                  height: 0,
-                  child: AnimatedOpacity(
-                    duration: const Duration(milliseconds: 500),
-                    opacity: 0,
-                    child: DynamicInputWidget(
-                      controller: confirmPasswordController,
-                      focusNode: confirmPasswordFocusNode,
-                      isNonPasswordField: false,
-                      labelText: 'Confirm Password',
-                      obscureText: obscureText,
-                      prefIcon: const Icon(Icons.password),
-                      textInputAction: TextInputAction.done,
-                      toggleObscureText: toggleObscureText,
-                      validator: (val) =>
-                          authValidator.confirmPasswordValidator(
-                              val, passwordController.text),
-                    ),
-                  ),
+                DynamicInputWidget(
+                  controller: confirmPasswordController,
+                  focusNode: confirmPasswordFocusNode,
+                  isNonPasswordField: false,
+                  labelText: 'Confirm Password',
+                  obscureText: obscureText,
+                  prefIcon: const Icon(Icons.password),
+                  textInputAction: TextInputAction.done,
+                  toggleObscureText: toggleObscureText,
+                  validator: (val) => authValidator.confirmPasswordValidator(
+                      val, passwordController.text),
                 ),
                 const SizedBox(
                   height: 20,
@@ -179,25 +175,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: 20,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    GetInstance.navigator.pushNamed(ConstRouter.forgotPassword);
+                  },
                   child: Text(
                     'forgot password?',
                     style: ThemeText.size40BlackBold,
                   ),
                 ),
-
-                // ElevatedButton(
-                //   onPressed: () {
-                //     if (_formKey.currentState!.validate()) {
-                //       ScaffoldMessenger.of(context).showSnackBar(
-                //           msgPopUp('Form is valid, Submitting data'));
-                //     }
-                //   },
-                //   style: ButtonStyle(
-                //     elevation: MaterialStateProperty.all(8.0),
-                //   ),
-                //   child: Text(registerAuthMode ? 'Register' : 'Sign In'),
-                // ),
 
                 const SizedBox(
                   height: 20,

@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 class ThemeColors {
   static const Color skyBlue = Color(0xFF24bddc);
 
+  static const Color blue = Color(0xFF00718b);
+
+  static const Color background = Color(0xFFf6f5fa);
+
   /// color text
   static const Color greyA6 = Color(0xFFa1a0a6);
   static const Color grey64 = Color(0xFF646464);

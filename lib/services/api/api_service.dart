@@ -90,9 +90,9 @@ class ApiService {
     try {
       // if (await HelperApi.deviceIdNotEmpty(path)) {
       final apiUri = HelperApi.buildUri(path);
-      if (addToken) {
-        body?[ConstKeys.token] = token;
-      }
+      // if (addToken) {
+      //   body?[ConstKeys.token] = token;
+      // }
 
       /// log call
       HelperLog.logApiCall(

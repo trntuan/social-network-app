@@ -35,8 +35,8 @@ class SetupRouter {
         },
       ),
       GoRoute(
-        name: ConstRouter.forgotAccount,
-        path: '/${ConstRouter.forgotAccount}',
+        name: ConstRouter.forgotPassword,
+        path: '/${ConstRouter.forgotPassword}',
         builder: (context, state) {
           return const ForgotPasswordScreen();
         },

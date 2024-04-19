@@ -15,6 +15,321 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+mixin _$AuthEventLogin {
+  String get email => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AuthEventLoginCopyWith<AuthEventLogin> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AuthEventLoginCopyWith<$Res> {
+  factory $AuthEventLoginCopyWith(
+          AuthEventLogin value, $Res Function(AuthEventLogin) then) =
+      _$AuthEventLoginCopyWithImpl<$Res, AuthEventLogin>;
+  @useResult
+  $Res call({String email, String password});
+}
+
+/// @nodoc
+class _$AuthEventLoginCopyWithImpl<$Res, $Val extends AuthEventLogin>
+    implements $AuthEventLoginCopyWith<$Res> {
+  _$AuthEventLoginCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(_value.copyWith(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AuthEventLoginImplCopyWith<$Res>
+    implements $AuthEventLoginCopyWith<$Res> {
+  factory _$$AuthEventLoginImplCopyWith(_$AuthEventLoginImpl value,
+          $Res Function(_$AuthEventLoginImpl) then) =
+      __$$AuthEventLoginImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String email, String password});
+}
+
+/// @nodoc
+class __$$AuthEventLoginImplCopyWithImpl<$Res>
+    extends _$AuthEventLoginCopyWithImpl<$Res, _$AuthEventLoginImpl>
+    implements _$$AuthEventLoginImplCopyWith<$Res> {
+  __$$AuthEventLoginImplCopyWithImpl(
+      _$AuthEventLoginImpl _value, $Res Function(_$AuthEventLoginImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(_$AuthEventLoginImpl(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthEventLoginImpl implements _AuthEventLogin {
+  _$AuthEventLoginImpl({required this.email, required this.password});
+
+  @override
+  final String email;
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'AuthEventLogin(email: $email, password: $password)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthEventLoginImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthEventLoginImplCopyWith<_$AuthEventLoginImpl> get copyWith =>
+      __$$AuthEventLoginImplCopyWithImpl<_$AuthEventLoginImpl>(
+          this, _$identity);
+}
+
+abstract class _AuthEventLogin implements AuthEventLogin {
+  factory _AuthEventLogin(
+      {required final String email,
+      required final String password}) = _$AuthEventLoginImpl;
+
+  @override
+  String get email;
+  @override
+  String get password;
+  @override
+  @JsonKey(ignore: true)
+  _$$AuthEventLoginImplCopyWith<_$AuthEventLoginImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$AuthEventRegister {
+  String get email => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+  String get firstName => throw _privateConstructorUsedError;
+  String get lastName => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AuthEventRegisterCopyWith<AuthEventRegister> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AuthEventRegisterCopyWith<$Res> {
+  factory $AuthEventRegisterCopyWith(
+          AuthEventRegister value, $Res Function(AuthEventRegister) then) =
+      _$AuthEventRegisterCopyWithImpl<$Res, AuthEventRegister>;
+  @useResult
+  $Res call({String email, String password, String firstName, String lastName});
+}
+
+/// @nodoc
+class _$AuthEventRegisterCopyWithImpl<$Res, $Val extends AuthEventRegister>
+    implements $AuthEventRegisterCopyWith<$Res> {
+  _$AuthEventRegisterCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+    Object? firstName = null,
+    Object? lastName = null,
+  }) {
+    return _then(_value.copyWith(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AuthEventRegisterImplCopyWith<$Res>
+    implements $AuthEventRegisterCopyWith<$Res> {
+  factory _$$AuthEventRegisterImplCopyWith(_$AuthEventRegisterImpl value,
+          $Res Function(_$AuthEventRegisterImpl) then) =
+      __$$AuthEventRegisterImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String email, String password, String firstName, String lastName});
+}
+
+/// @nodoc
+class __$$AuthEventRegisterImplCopyWithImpl<$Res>
+    extends _$AuthEventRegisterCopyWithImpl<$Res, _$AuthEventRegisterImpl>
+    implements _$$AuthEventRegisterImplCopyWith<$Res> {
+  __$$AuthEventRegisterImplCopyWithImpl(_$AuthEventRegisterImpl _value,
+      $Res Function(_$AuthEventRegisterImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+    Object? firstName = null,
+    Object? lastName = null,
+  }) {
+    return _then(_$AuthEventRegisterImpl(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthEventRegisterImpl implements _AuthEventRegister {
+  _$AuthEventRegisterImpl(
+      {required this.email,
+      required this.password,
+      required this.firstName,
+      required this.lastName});
+
+  @override
+  final String email;
+  @override
+  final String password;
+  @override
+  final String firstName;
+  @override
+  final String lastName;
+
+  @override
+  String toString() {
+    return 'AuthEventRegister(email: $email, password: $password, firstName: $firstName, lastName: $lastName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthEventRegisterImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, email, password, firstName, lastName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthEventRegisterImplCopyWith<_$AuthEventRegisterImpl> get copyWith =>
+      __$$AuthEventRegisterImplCopyWithImpl<_$AuthEventRegisterImpl>(
+          this, _$identity);
+}
+
+abstract class _AuthEventRegister implements AuthEventRegister {
+  factory _AuthEventRegister(
+      {required final String email,
+      required final String password,
+      required final String firstName,
+      required final String lastName}) = _$AuthEventRegisterImpl;
+
+  @override
+  String get email;
+  @override
+  String get password;
+  @override
+  String get firstName;
+  @override
+  String get lastName;
+  @override
+  @JsonKey(ignore: true)
+  _$$AuthEventRegisterImplCopyWith<_$AuthEventRegisterImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AuthState {}
 
 /// @nodoc

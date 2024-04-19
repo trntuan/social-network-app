@@ -21,7 +21,7 @@ Widget buttonInkwell({
 }) {
   return Material(
     borderRadius: BorderRadius.circular(radius ?? 79.sp), // Bo 4 góc
-    color: backgrountColor ?? ThemeColors.skyBlue, // Màu cam
+    color: backgrountColor ?? ThemeColors.blue, // Màu cam
     child: InkWell(
       onTap: onPressed,
       splashColor: Colors.white.withOpacity(0.5), // Màu loang mực

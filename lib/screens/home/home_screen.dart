@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(
+      appBar: CustomAppbarHome(
         bottom: TabBar(
           controller: _tabController,
           tabs: const <Widget>[

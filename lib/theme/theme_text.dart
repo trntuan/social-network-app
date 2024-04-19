@@ -62,8 +62,12 @@ class ThemeText {
     fontSize: 48.sp,
   );
 
-  static final size70CyanAccent = CustomTextStyle.bold(
+  static final size50SkyBlue = CustomTextStyle.bold(
     color: ThemeColors.skyBlue,
+    fontSize: 50.sp,
+  );
+  static final size50Blue = CustomTextStyle.bold(
+    color: ThemeColors.blue,
     fontSize: 50.sp,
   );
 

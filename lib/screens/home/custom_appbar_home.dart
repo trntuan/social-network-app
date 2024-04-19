@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../theme/theme_color.dart';
+import '../../theme/theme_image.dart';
 import '../../theme/theme_text.dart';
 
-class CustomAppbar extends AppBar {
-  CustomAppbar({
+class CustomAppbarHome extends AppBar {
+  CustomAppbarHome({
     super.forceMaterialTransparency,
     super.shadowColor,
     super.key,
@@ -29,9 +31,12 @@ class CustomAppbar extends AppBar {
               children: [
                 Row(
                   children: [
-                    Text(
-                      'NTU social network',
-                      style: ThemeText.size70CyanAccent,
+                    Image(
+                      width: 270.sp,
+                      height: 131.sp,
+                      image: ImageAssets.logoApp,
+                      fit: BoxFit.fill,
+                      color: ThemeColors.blue,
                     )
                   ],
                 )
@@ -46,6 +51,7 @@ class CustomAppbar extends AppBar {
                   child: const Icon(
                     Icons.search,
                     size: 40,
+                    color: ThemeColors.blue,
                   ),
                 ),
                 Padding(
@@ -58,6 +64,7 @@ class CustomAppbar extends AppBar {
                       child: Icon(
                         MdiIcons.chatProcessingOutline,
                         size: 40,
+                        color: ThemeColors.blue,
                       ),
                     ),
                   ),

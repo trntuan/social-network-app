@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../services/auth/auth_validators.dart';
+import '../../theme/theme_color.dart';
 import '../../widgets/dynamic_input_widget.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -26,13 +27,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   // to obscure text default value is false
   bool obscureText = true;
   // This will require toggling between register and sign-in mode
-  bool registerAuthMode = false;
 
 // Instantiate all the *text editing controllers* and focus nodes on *initState* function
   @override
   void initState() {
     super.initState();
     emailController = TextEditingController();
+
+    emailFocusNode = FocusNode();
   }
 
   // These all need to be disposed of once done so let's do that as well.
@@ -65,6 +67,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ThemeColors.background,
       appBar: AppBar(
         title: const Text('Forgot Account'),
       ),
@@ -92,14 +95,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
                 // Username
 
-                AnimatedOpacity(
-                  duration: const Duration(milliseconds: 500),
-                  opacity: registerAuthMode ? 1 : 0,
-                  child: const SizedBox(
-                    height: 20,
-                  ),
-                ),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -120,27 +115,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       style: ButtonStyle(
                         elevation: MaterialStateProperty.all(8.0),
                       ),
-                      child: Text(registerAuthMode ? 'Register' : 'Sign In'),
+                      child: const Text('continue'),
                     ),
                   ],
                 ),
-
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(registerAuthMode
-                        ? 'Already Have an account?'
-                        : "Don't have an account yet?"),
-                    TextButton(
-                      onPressed: () =>
-                          setState(() => registerAuthMode = !registerAuthMode),
-                      child: Text(registerAuthMode ? 'Sign In' : 'Regsiter'),
-                    )
-                  ],
-                )
               ],
             ),
           ),

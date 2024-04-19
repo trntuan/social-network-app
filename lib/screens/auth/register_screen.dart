@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 
+import '../../bloc/auth/auth_bloc.dart';
+import '../../const/const_value.dart';
 import '../../services/auth/auth_validators.dart';
 import '../../services/get_it/get_instance.dart';
+import '../../theme/theme_color.dart';
+import '../../theme/theme_text.dart';
+import '../../widgets/custom_appbar/button_appbar.dart';
+import '../../widgets/custom_appbar/custom_appbar.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/dynamic_input_widget.dart';
 
@@ -14,8 +22,11 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  int? gender = ConstValue.nam;
   // Define Form key
   final _formKey = GlobalKey<FormState>();
+
+  late final AuthBloc bloc = GetIt.instance.get<AuthBloc>();
 
   // Instantiate validator
   final AuthValidators authValidator = AuthValidators();
@@ -87,139 +98,186 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Register'),
+      backgroundColor: ThemeColors.background,
+      appBar: CustomAppbar(
+        title: 'Register',
+        iconLeft: IconAppbar.back,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                // Email
-                DynamicInputWidget(
-                  controller: emailController,
-                  obscureText: false,
-                  focusNode: emailFocusNode,
-                  toggleObscureText: null,
-                  validator: authValidator.emailValidator,
-                  prefIcon: const Icon(Icons.mail),
-                  labelText: 'Enter Email Address',
-                  textInputAction: TextInputAction.next,
-                  isNonPasswordField: true,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                // Username
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 500),
-                  height: 65,
-                  child: AnimatedOpacity(
-                    duration: const Duration(milliseconds: 500),
-                    opacity: 1,
-                    child: DynamicInputWidget(
-                      controller: usernameController,
-                      obscureText: false,
-                      focusNode: usernameFocusNode,
-                      toggleObscureText: null,
-                      validator: null,
-                      prefIcon: const Icon(Icons.person),
-                      labelText: 'Enter Username(Optional)',
-                      textInputAction: TextInputAction.next,
-                      isNonPasswordField: true,
-                    ),
-                  ),
-                ),
+      body: BlocProvider(
+        create: (context) => bloc,
+        child: BlocBuilder<AuthBloc, AuthState>(
+          builder: (context, state) {
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      // Email
+                      DynamicInputWidget(
+                        controller: emailController,
+                        obscureText: false,
+                        focusNode: emailFocusNode,
+                        toggleObscureText: null,
+                        validator: authValidator.emailValidator,
+                        prefIcon: const Icon(Icons.mail),
+                        labelText: 'Enter Email Address',
+                        textInputAction: TextInputAction.next,
+                        isNonPasswordField: true,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      // Username
+                      DynamicInputWidget(
+                        controller: usernameController,
+                        obscureText: false,
+                        focusNode: usernameFocusNode,
+                        toggleObscureText: null,
+                        validator: null,
+                        prefIcon: const Icon(Icons.person),
+                        labelText: 'Enter Username(Optional)',
+                        textInputAction: TextInputAction.next,
+                        isNonPasswordField: true,
+                      ),
 
-                const AnimatedOpacity(
-                  duration: Duration(milliseconds: 500),
-                  opacity: 1,
-                  child: SizedBox(
-                    height: 20,
-                  ),
-                ),
+                      const SizedBox(
+                        height: 20,
+                      ),
 
-                DynamicInputWidget(
-                  controller: passwordController,
-                  labelText: 'Enter Password',
-                  obscureText: obscureText,
-                  focusNode: passwordFocusNode,
-                  toggleObscureText: toggleObscureText,
-                  validator: authValidator.passwordVlidator,
-                  prefIcon: const Icon(Icons.password),
-                  textInputAction: TextInputAction.next,
-                  isNonPasswordField: false,
-                ),
+                      DynamicInputWidget(
+                        controller: passwordController,
+                        labelText: 'Enter Password',
+                        obscureText: obscureText,
+                        focusNode: passwordFocusNode,
+                        toggleObscureText: toggleObscureText,
+                        validator: authValidator.passwordVlidator,
+                        prefIcon: const Icon(Icons.password),
+                        textInputAction: TextInputAction.next,
+                        isNonPasswordField: false,
+                      ),
 
-                const SizedBox(
-                  height: 20,
-                ),
+                      const SizedBox(
+                        height: 20,
+                      ),
 
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 500),
-                  height: 65,
-                  child: AnimatedOpacity(
-                    duration: const Duration(milliseconds: 500),
-                    opacity: 1,
-                    child: DynamicInputWidget(
-                      controller: confirmPasswordController,
-                      focusNode: confirmPasswordFocusNode,
-                      isNonPasswordField: false,
-                      labelText: 'Confirm Password',
-                      obscureText: obscureText,
-                      prefIcon: const Icon(Icons.password),
-                      textInputAction: TextInputAction.done,
-                      toggleObscureText: toggleObscureText,
-                      validator: (val) =>
-                          authValidator.confirmPasswordValidator(
-                              val, passwordController.text),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
+                      DynamicInputWidget(
+                        controller: confirmPasswordController,
+                        focusNode: confirmPasswordFocusNode,
+                        isNonPasswordField: false,
+                        labelText: 'Confirm Password',
+                        obscureText: obscureText,
+                        prefIcon: const Icon(Icons.password),
+                        textInputAction: TextInputAction.done,
+                        toggleObscureText: toggleObscureText,
+                        validator: (val) =>
+                            authValidator.confirmPasswordValidator(
+                                val, passwordController.text),
+                      ),
 
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: 55.sp,
-                    right: 55.sp,
-                  ),
-                  child: buttonInkwell(
-                    marginBtn: EdgeInsets.zero,
-                    paddingBtn: EdgeInsets.zero,
-                    title: 'Register',
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            msgPopUp('Form is valid, Submitting data'));
-                      }
-                    },
-                  ),
-                ),
+                      const SizedBox(
+                        height: 20,
+                      ),
 
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('Already Have an account?'),
-                    TextButton(
-                        onPressed: () {
-                          GetInstance.navigator.pop();
+                      StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return Column(
+                            children: [
+                              const Text('giới tính'),
+                              Row(
+                                children: [
+                                  Text(
+                                    'nam',
+                                    style: ThemeText.size40Black,
+                                  ),
+                                  Radio<int>(
+                                    splashRadius: 25.0,
+                                    // activeColor: ThemeColors.burgundy,
+                                    value: ConstValue.nam,
+                                    groupValue: gender,
+                                    onChanged: (int? value) {
+                                      setState(() {
+                                        gender = value;
+                                      });
+                                    },
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'nữ',
+                                    style: ThemeText.size40Black,
+                                  ),
+                                  Radio<int>(
+                                    splashRadius: 25.0,
+                                    // activeColor: ThemeColors.burgundy,
+                                    value: ConstValue.nam,
+                                    groupValue: gender,
+                                    onChanged: (int? value) {
+                                      setState(() {
+                                        gender = value;
+                                      });
+                                    },
+                                  )
+                                ],
+                              ),
+                            ],
+                          );
                         },
-                        child: const Text(
-                          'Log in',
-                          style: TextStyle(color: Colors.blue),
-                        ))
-                  ],
-                )
-              ],
-            ),
-          ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 55.sp,
+                          right: 55.sp,
+                        ),
+                        child: buttonInkwell(
+                          marginBtn: EdgeInsets.zero,
+                          paddingBtn: EdgeInsets.zero,
+                          title: 'Register',
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              bloc.add(
+                                AuthEventRegister(
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                  firstName: usernameController.text,
+                                  lastName: confirmPasswordController.text,
+                                ),
+                              );
+                            }
+                          },
+                        ),
+                      ),
+
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text('Already Have an account?'),
+                          TextButton(
+                              onPressed: () {
+                                GetInstance.navigator.pop();
+                              },
+                              child: const Text(
+                                'Log in',
+                                style: TextStyle(color: Colors.blue),
+                              ))
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

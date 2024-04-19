@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'const/const_app.dart';
 import 'services/get_it/config_get_it.dart';
 import 'services/navigator/setup_navigator.dart';
+import 'theme/theme_color.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +36,12 @@ class MainApp extends StatelessWidget {
           child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
             routerConfig: _router.appRouter,
-            theme: ThemeData(useMaterial3: true),
+            theme: ThemeData(useMaterial3: true).copyWith(
+              colorScheme: const ColorScheme.light(
+                primary: ThemeColors.blue,
+                secondary: ThemeColors.blue,
+              ),
+            ),
           ),
         );
       },
