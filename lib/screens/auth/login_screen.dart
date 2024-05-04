@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 
+import '../../bloc/auth/auth_bloc.dart';
 import '../../const/const_router.dart';
+import '../../helpers/helper_decode.dart';
 import '../../services/auth/auth_validators.dart';
 import '../../services/get_it/get_instance.dart';
 import '../../theme/theme_color.dart';
 import '../../theme/theme_text.dart';
-import '../../widgets/custom_appbar/button_appbar.dart';
 import '../../widgets/custom_appbar/custom_appbar.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/dynamic_input_widget.dart';
@@ -19,6 +21,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  late final AuthBloc bloc = GetIt.instance.get<AuthBloc>();
   // Define Form key
   final _formKey = GlobalKey<FormState>();
 
@@ -29,13 +32,10 @@ class _LoginScreenState extends State<LoginScreen> {
   late TextEditingController emailController;
   late TextEditingController usernameController;
   late TextEditingController passwordController;
-  late TextEditingController confirmPasswordController;
 
 // create focus nodes
   late FocusNode emailFocusNode;
-  late FocusNode usernameFocusNode;
   late FocusNode passwordFocusNode;
-  late FocusNode confirmPasswordFocusNode;
 
   // to obscure text default value is false
   bool obscureText = true;
@@ -46,14 +46,10 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     super.initState();
     emailController = TextEditingController();
-    usernameController = TextEditingController();
     passwordController = TextEditingController();
-    confirmPasswordController = TextEditingController();
 
     emailFocusNode = FocusNode();
-    usernameFocusNode = FocusNode();
     passwordFocusNode = FocusNode();
-    confirmPasswordFocusNode = FocusNode();
   }
 
   // These all need to be disposed of once done so let's do that as well.
@@ -62,14 +58,10 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
 
     emailController.dispose();
-    usernameController.dispose();
     passwordController.dispose();
-    confirmPasswordController.dispose();
 
     emailFocusNode.dispose();
-    usernameFocusNode.dispose();
     passwordFocusNode.dispose();
-    confirmPasswordFocusNode.dispose();
   }
 
 // Create a function that'll toggle the password's visibility on the relevant icon tap.
@@ -95,8 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: ThemeColors.background,
       appBar: CustomAppbar(
-        title: 'Login',
-        iconLeft: IconAppbar.back,
+        paddingLeft: EdgeInsets.only(left: 50.sp),
+        title: 'Đăng nhập',
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -113,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   toggleObscureText: null,
                   validator: authValidator.emailValidator,
                   prefIcon: const Icon(Icons.mail),
-                  labelText: 'Enter Email Address',
+                  labelText: 'Nhâp địa chỉ email',
                   textInputAction: TextInputAction.next,
                   isNonPasswordField: true,
                 ),
@@ -124,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 DynamicInputWidget(
                   controller: passwordController,
-                  labelText: 'Enter Password',
+                  labelText: 'Nhập mât khẩu',
                   obscureText: obscureText,
                   focusNode: passwordFocusNode,
                   toggleObscureText: toggleObscureText,
@@ -134,22 +126,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   isNonPasswordField: false,
                 ),
 
-                const SizedBox(
-                  height: 20,
-                ),
-
-                DynamicInputWidget(
-                  controller: confirmPasswordController,
-                  focusNode: confirmPasswordFocusNode,
-                  isNonPasswordField: false,
-                  labelText: 'Confirm Password',
-                  obscureText: obscureText,
-                  prefIcon: const Icon(Icons.password),
-                  textInputAction: TextInputAction.done,
-                  toggleObscureText: toggleObscureText,
-                  validator: (val) => authValidator.confirmPasswordValidator(
-                      val, passwordController.text),
-                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -165,8 +141,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     title: 'Log in',
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            msgPopUp('Form is valid, Submitting data'));
+                        bloc.add(AuthEventLogin(
+                          email: emailController.text,
+                          password: HelperDecode.encryptPassword(
+                              passwordController.text),
+                        ));
                       }
                     },
                   ),

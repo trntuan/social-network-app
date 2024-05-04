@@ -4,6 +4,8 @@ class AuthValidators {
       'Invalid Email Address, Please provide a valid email.';
   static const String passwordErrMsg =
       'Password must have at least 6 characters.';
+  static const String nameErrMsg = 'name must have at least 3 characters.';
+
   static const String confirmPasswordErrMsg = "Two passwords don't match.";
 
 // A simple email validator that  checks the presence and position of @
@@ -47,6 +49,16 @@ class AuthValidators {
 
     if (password.isEmpty || password.length <= 5) {
       return passwordErrMsg;
+    }
+
+    return null;
+  }
+
+  String? nameVlidator(String? val) {
+    final String name = val as String;
+
+    if (name.isEmpty || name.length <= 2) {
+      return nameErrMsg;
     }
 
     return null;

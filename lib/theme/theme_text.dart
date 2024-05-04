@@ -57,9 +57,24 @@ class ThemeText {
     fontSize: 48.sp,
   );
 
+  static final size48Dark31 = CustomTextStyle(
+    color: ThemeColors.dark31,
+    fontSize: 48.sp,
+  );
+
   static final size48WhiteBold = CustomTextStyle.bold(
     color: Colors.white,
     fontSize: 48.sp,
+  );
+
+  static final size40Dark31 = CustomTextStyle(
+    color: ThemeColors.dark31,
+    fontSize: 40.sp,
+  );
+
+  static final size50Black = CustomTextStyle(
+    color: Colors.black,
+    fontSize: 50.sp,
   );
 
   static final size50SkyBlue = CustomTextStyle.bold(
@@ -69,6 +84,11 @@ class ThemeText {
   static final size50Blue = CustomTextStyle.bold(
     color: ThemeColors.blue,
     fontSize: 50.sp,
+  );
+
+  static final size44Blue = CustomTextStyle(
+    color: ThemeColors.blue,
+    fontSize: 44.sp,
   );
 
   static final size80BlackBold = CustomTextStyle.bold(

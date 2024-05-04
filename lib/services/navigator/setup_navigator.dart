@@ -10,7 +10,7 @@ import 'config_navigator.dart';
 
 class SetupRouter {
   late final GoRouter appRouter = GoRouter(
-    initialLocation: '/${ConstRouter.home}',
+    initialLocation: '/${ConstRouter.splash}',
     navigatorKey: ConfigNavigator.navigatorKey,
     routes: [
       GoRoute(

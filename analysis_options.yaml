@@ -69,7 +69,6 @@ linter:
     - prefer_is_empty
     - prefer_is_not_empty
     - prefer_iterable_whereType
-    - prefer_single_quotes
     - prefer_spread_collections
     - recursive_getters
     - sized_box_for_whitespace
@@ -83,7 +82,6 @@ linter:
     - unnecessary_null_in_if_null_operators
     - unnecessary_parenthesis
     - unnecessary_string_escapes
-    - unnecessary_string_interpolations
     - unnecessary_this
     - unrelated_type_equality_checks
     - use_full_hex_values_for_flutter_colors

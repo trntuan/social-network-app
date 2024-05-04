@@ -10,6 +10,8 @@ class ConstApp {
   static const isProduct = false;
 
   //
-  static const apiAuthority = 'http://localhost:3000';
+  static const apiAuthority = '192.168.56.1:3000';
+  // static const apiAuthority = 'localhost:50376';
+
   static const apiPath = '';
 }

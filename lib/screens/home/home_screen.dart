@@ -58,16 +58,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         controller: _tabController,
         children: const <Widget>[
           Center(
-            child: Text("It's cloudy here"),
+            child: Text("trang chủ"),
           ),
           Center(
-            child: Text("It's rainy here"),
+            child: Text("bạn bè"),
           ),
           Center(
-            child: Text("It's sunny here"),
+            child: Text("nhóm"),
           ),
           Center(
-            child: Text("It's sunny here"),
+            child: Text("thông báo"),
           ),
           SettingScreen(),
         ],

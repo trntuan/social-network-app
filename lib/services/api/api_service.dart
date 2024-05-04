@@ -104,7 +104,7 @@ class ApiService {
 
       final response = await iOClient.post(
         apiUri,
-        headers: headers,
+        // headers: headers,
         body: body,
       );
 

@@ -157,6 +157,8 @@ mixin _$AuthEventRegister {
   String get password => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
+  int? get gender => throw _privateConstructorUsedError;
+  String get dateOfBirth => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthEventRegisterCopyWith<AuthEventRegister> get copyWith =>
@@ -169,7 +171,13 @@ abstract class $AuthEventRegisterCopyWith<$Res> {
           AuthEventRegister value, $Res Function(AuthEventRegister) then) =
       _$AuthEventRegisterCopyWithImpl<$Res, AuthEventRegister>;
   @useResult
-  $Res call({String email, String password, String firstName, String lastName});
+  $Res call(
+      {String email,
+      String password,
+      String firstName,
+      String lastName,
+      int? gender,
+      String dateOfBirth});
 }
 
 /// @nodoc
@@ -189,6 +197,8 @@ class _$AuthEventRegisterCopyWithImpl<$Res, $Val extends AuthEventRegister>
     Object? password = null,
     Object? firstName = null,
     Object? lastName = null,
+    Object? gender = freezed,
+    Object? dateOfBirth = null,
   }) {
     return _then(_value.copyWith(
       email: null == email
@@ -207,6 +217,14 @@ class _$AuthEventRegisterCopyWithImpl<$Res, $Val extends AuthEventRegister>
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as int?,
+      dateOfBirth: null == dateOfBirth
+          ? _value.dateOfBirth
+          : dateOfBirth // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -219,7 +237,13 @@ abstract class _$$AuthEventRegisterImplCopyWith<$Res>
       __$$AuthEventRegisterImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String password, String firstName, String lastName});
+  $Res call(
+      {String email,
+      String password,
+      String firstName,
+      String lastName,
+      int? gender,
+      String dateOfBirth});
 }
 
 /// @nodoc
@@ -237,6 +261,8 @@ class __$$AuthEventRegisterImplCopyWithImpl<$Res>
     Object? password = null,
     Object? firstName = null,
     Object? lastName = null,
+    Object? gender = freezed,
+    Object? dateOfBirth = null,
   }) {
     return _then(_$AuthEventRegisterImpl(
       email: null == email
@@ -255,6 +281,14 @@ class __$$AuthEventRegisterImplCopyWithImpl<$Res>
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as int?,
+      dateOfBirth: null == dateOfBirth
+          ? _value.dateOfBirth
+          : dateOfBirth // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -266,7 +300,9 @@ class _$AuthEventRegisterImpl implements _AuthEventRegister {
       {required this.email,
       required this.password,
       required this.firstName,
-      required this.lastName});
+      required this.lastName,
+      required this.gender,
+      required this.dateOfBirth});
 
   @override
   final String email;
@@ -276,10 +312,14 @@ class _$AuthEventRegisterImpl implements _AuthEventRegister {
   final String firstName;
   @override
   final String lastName;
+  @override
+  final int? gender;
+  @override
+  final String dateOfBirth;
 
   @override
   String toString() {
-    return 'AuthEventRegister(email: $email, password: $password, firstName: $firstName, lastName: $lastName)';
+    return 'AuthEventRegister(email: $email, password: $password, firstName: $firstName, lastName: $lastName, gender: $gender, dateOfBirth: $dateOfBirth)';
   }
 
   @override
@@ -293,12 +333,15 @@ class _$AuthEventRegisterImpl implements _AuthEventRegister {
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
-                other.lastName == lastName));
+                other.lastName == lastName) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.dateOfBirth, dateOfBirth) ||
+                other.dateOfBirth == dateOfBirth));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, email, password, firstName, lastName);
+  int get hashCode => Object.hash(
+      runtimeType, email, password, firstName, lastName, gender, dateOfBirth);
 
   @JsonKey(ignore: true)
   @override
@@ -313,7 +356,9 @@ abstract class _AuthEventRegister implements AuthEventRegister {
       {required final String email,
       required final String password,
       required final String firstName,
-      required final String lastName}) = _$AuthEventRegisterImpl;
+      required final String lastName,
+      required final int? gender,
+      required final String dateOfBirth}) = _$AuthEventRegisterImpl;
 
   @override
   String get email;
@@ -323,6 +368,10 @@ abstract class _AuthEventRegister implements AuthEventRegister {
   String get firstName;
   @override
   String get lastName;
+  @override
+  int? get gender;
+  @override
+  String get dateOfBirth;
   @override
   @JsonKey(ignore: true)
   _$$AuthEventRegisterImplCopyWith<_$AuthEventRegisterImpl> get copyWith =>

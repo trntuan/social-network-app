@@ -11,6 +11,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:social_network_app/bloc/auth/auth_bloc.dart' as _i3;
+import 'package:social_network_app/bloc/splash/splash_bloc.dart' as _i5;
 import 'package:social_network_app/services/navigator/config_navigator.dart'
     as _i4;
 
@@ -27,6 +28,7 @@ extension GetItInjectableX on _i1.GetIt {
     );
     gh.factory<_i3.AuthBloc>(() => _i3.AuthBloc());
     gh.lazySingleton<_i4.ConfigNavigator>(() => const _i4.ConfigNavigator());
+    gh.factory<_i5.SplashBloc>(() => _i5.SplashBloc());
     return this;
   }
 }

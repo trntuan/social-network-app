@@ -19,5 +19,7 @@ class AuthEventRegister extends AuthEvent with _$AuthEventRegister {
     required String password,
     required String firstName,
     required String lastName,
+    required int? gender,
+    required String dateOfBirth,
   }) = _AuthEventRegister;
 }

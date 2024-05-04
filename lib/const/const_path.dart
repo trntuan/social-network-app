@@ -1,3 +1,5 @@
 class ConstPathPost {
-  static const register = '/register';
+  static const register = 'user/register';
+
+  static const login = 'user/login';
 }

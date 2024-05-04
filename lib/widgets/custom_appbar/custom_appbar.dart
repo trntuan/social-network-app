@@ -18,7 +18,8 @@ class CustomAppbar extends AppBar {
     Color? backgroundColor,
     String? title,
     double? toolbarHeight,
-    EdgeInsets? paddingAction,
+    EdgeInsets? paddingRight,
+    EdgeInsets? paddingLeft,
     Function()? onTapAction,
     Function()? onTapLeading,
   }) : super(
@@ -39,12 +40,15 @@ class CustomAppbar extends AppBar {
                 ),
               if (!HelperCheck.empty(title))
                 Flexible(
-                  child: Text(
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    '$title',
-                    textAlign: TextAlign.right,
-                    style: titleTextStyle ?? ThemeText.size50Blue,
+                  child: Padding(
+                    padding: paddingLeft ?? EdgeInsets.zero,
+                    child: Text(
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      '$title',
+                      textAlign: TextAlign.right,
+                      style: titleTextStyle ?? ThemeText.size50Blue,
+                    ),
                   ),
                 ),
             ],
@@ -52,7 +56,7 @@ class CustomAppbar extends AppBar {
           actions: [
             if (!HelperCheck.empty(iconRight))
               Padding(
-                padding: paddingAction ?? EdgeInsets.only(right: 20.sp),
+                padding: paddingRight ?? EdgeInsets.only(right: 20.sp),
                 child: buttonAppbar(
                   icon: iconRight ?? IconAppbar.back,
                   onTap: onTapAction,

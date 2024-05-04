@@ -4,7 +4,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import '../../theme/theme_color.dart';
 import '../../theme/theme_image.dart';
-import '../../theme/theme_text.dart';
 
 class CustomAppbarHome extends AppBar {
   CustomAppbarHome({
