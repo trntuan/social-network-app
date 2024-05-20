@@ -48,8 +48,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       ParamRegister(
         email: event.email,
         password: event.password,
-        firstName: event.firstName,
-        lastName: event.lastName,
+        displayName: event.displayName,
         gender: event.gender,
         dateOfBirth: event.dateOfBirth,
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import 'const/const_app.dart';
 import 'services/get_it/config_get_it.dart';
@@ -8,6 +9,9 @@ import 'theme/theme_color.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Khởi tạo dữ liệu địa phương cho tiếng Việt
+  await initializeDateFormatting('vi', null);
   configureGetIt();
   runApp(const MainApp());
 }

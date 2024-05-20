@@ -1,16 +1,14 @@
 class ParamRegister {
   String email;
   String password;
-  String firstName;
+  String displayName;
   int? gender;
-  String lastName;
   String dateOfBirth;
 
   ParamRegister({
     required this.email,
     required this.password,
-    required this.firstName,
-    required this.lastName,
+    required this.displayName,
     required this.gender,
     required this.dateOfBirth,
   });
@@ -19,8 +17,7 @@ class ParamRegister {
     final Map<String, String> data = {
       "email": "$email",
       "password": "$password",
-      "first_name": "$firstName",
-      "last_name": '$lastName',
+      "display_name": "$displayName",
       "gender": "$gender",
       "date_of_birth": "$dateOfBirth",
     };

@@ -61,7 +61,7 @@ class HelperApi {
     final ResponseMessage responseMessage = ResponseMessage();
     final int? status = response?.statusCode;
 
-    if (!HelperCheck.empty(status)) {
+    if (!HelperChecker.empty(status)) {
       // data body
       final Map<String, dynamic> dataBody;
       // create data with style map

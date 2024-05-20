@@ -2,7 +2,7 @@ import '../extension/iterable_extension.dart';
 import 'helper_decode.dart';
 import 'helper_log.dart';
 
-class HelperCheck {
+class HelperChecker {
   static bool equal(item1, item2) {
     try {
       if (item1 is Map && item2 is Map) {

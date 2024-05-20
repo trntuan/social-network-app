@@ -11,7 +11,7 @@ class HelperDecode {
     for (String key in params.keys) {
       final value = params[key];
 
-      if (!HelperCheck.empty(value)) {
+      if (!HelperChecker.empty(value)) {
         final String paramData = '$key=$value';
 
         if (output != '?') {

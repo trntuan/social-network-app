@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:http/http.dart';
 
 import '../../const/const_keys.dart';
 import '../../const/const_tag.dart';
 import '../../helpers/helper_api.dart';
 import '../../helpers/helper_log.dart';
+import '../storage/my_data_storage.dart';
 
 class ApiService {
   ApiService._internal();
@@ -12,10 +15,11 @@ class ApiService {
   final iOClient = Client();
 
   ApiService();
-  String get token => '';
+  String get token => MyDataStorage.singleton.token ?? '';
 
   Map<String, String> get headers => {
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer $token',
       };
 
   Future<Response?> get(
@@ -135,5 +139,41 @@ class ApiService {
       }
     }
     return null;
+  }
+
+  Future<bool> uploadPost(String url, String content, String privacyType,
+      {File? image1, File? image2, File? image3}) async {
+    final request = MultipartRequest('POST', HelperApi.buildUri(url));
+
+    request.headers['Authorization'] = 'Bearer $token';
+    // Thêm các trường văn bản vào request
+    request.fields['content'] = content;
+    request.fields['privacy_type'] = privacyType;
+
+    // Thêm các tệp hình ảnh vào request nếu không null
+    if (image1 != null) {
+      request.files.add(await MultipartFile.fromPath('image1', image1.path));
+    }
+    if (image2 != null) {
+      request.files.add(await MultipartFile.fromPath('image2', image2.path));
+    }
+    if (image3 != null) {
+      request.files.add(await MultipartFile.fromPath('image3', image3.path));
+    }
+
+    final response = await request.send();
+    if (response.statusCode == 200) {
+      // Upload successful
+
+      HelperLog.logInfo('Upload successful');
+
+      return true;
+    } else {
+      // Handle error
+
+      HelperLog.logInfo('Upload failed with status: ${response.statusCode}');
+
+      return false;
+    }
   }
 }

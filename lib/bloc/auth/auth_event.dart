@@ -17,8 +17,7 @@ class AuthEventRegister extends AuthEvent with _$AuthEventRegister {
   factory AuthEventRegister({
     required String email,
     required String password,
-    required String firstName,
-    required String lastName,
+    required String displayName,
     required int? gender,
     required String dateOfBirth,
   }) = _AuthEventRegister;

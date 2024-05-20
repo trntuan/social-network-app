@@ -30,7 +30,7 @@ Future<T?> dialogPopup<T>({
   }
 
   /// ======== Title popup =========
-  final _title = HelperCheck.empty(title)
+  final _title = HelperChecker.empty(title)
       ? null
       : Text(
           '$title',

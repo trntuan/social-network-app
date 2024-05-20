@@ -16,10 +16,10 @@ class StorageService {
       /// save device id
 
       /// save token
-      // await storage.write(
-      //   key: KeyLogin.token,
-      //   value: GetStores.loginModel.token,
-      // );
+      await storage.write(
+        key: ConstKeys.token,
+        value: MyDataStorage.singleton.token,
+      );
 
       /// save user code
       await storage.write(

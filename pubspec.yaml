@@ -27,7 +27,9 @@ dependencies:
   crypto: 3.0.1
   flutter_spinkit: 5.2.1
   connectivity_plus: 5.0.2
+  easy_refresh: 3.3.4
   intl: 0.18.1
+  image_picker: ^1.0.8
 
 dev_dependencies:
   flutter_test:

@@ -37,15 +37,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
 // controllers
   late TextEditingController emailController;
-  late TextEditingController firstNameController;
-  late TextEditingController lastNameController;
+  late TextEditingController displayNameController;
   late TextEditingController passwordController;
   late TextEditingController confirmPasswordController;
 
 // create focus nodes
   late FocusNode emailFocusNode;
-  late FocusNode firstNameFocusNode;
-  late FocusNode larstNameFocusNode;
+  late FocusNode displayNameFocusNode;
   late FocusNode passwordFocusNode;
   late FocusNode confirmPasswordFocusNode;
 
@@ -58,14 +56,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void initState() {
     super.initState();
     emailController = TextEditingController();
-    firstNameController = TextEditingController();
+    displayNameController = TextEditingController();
     passwordController = TextEditingController();
     confirmPasswordController = TextEditingController();
-    lastNameController = TextEditingController();
 
     emailFocusNode = FocusNode();
-    firstNameFocusNode = FocusNode();
-    larstNameFocusNode = FocusNode();
+    displayNameFocusNode = FocusNode();
     passwordFocusNode = FocusNode();
     confirmPasswordFocusNode = FocusNode();
   }
@@ -76,14 +72,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
     super.dispose();
 
     emailController.dispose();
-    firstNameController.dispose();
-    lastNameController.dispose();
+    displayNameController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
 
     emailFocusNode.dispose();
-    firstNameFocusNode.dispose();
-    larstNameFocusNode.dispose();
+    displayNameFocusNode.dispose();
     passwordFocusNode.dispose();
     confirmPasswordFocusNode.dispose();
   }
@@ -107,6 +101,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Intl.defaultLocale = 'vi';
     return Scaffold(
       backgroundColor: ThemeColors.background,
       appBar: CustomAppbar(
@@ -132,7 +127,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         toggleObscureText: null,
                         validator: authValidator.emailValidator,
                         prefIcon: const Icon(Icons.mail),
-                        labelText: 'Enter Email Address',
+                        labelText: 'Nhập địa chỉ email',
                         textInputAction: TextInputAction.next,
                         isNonPasswordField: true,
                       ),
@@ -141,34 +136,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       // Username
                       DynamicInputWidget(
-                        controller: firstNameController,
+                        controller: displayNameController,
                         obscureText: false,
-                        focusNode: firstNameFocusNode,
+                        focusNode: displayNameFocusNode,
                         toggleObscureText: null,
                         validator: authValidator.nameVlidator,
                         prefIcon: const Icon(Icons.person),
-                        labelText: 'Tên của bạn',
+                        labelText: 'Tên bạn muốn hiển thị',
                         textInputAction: TextInputAction.next,
                         isNonPasswordField: true,
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      // Use
-                      DynamicInputWidget(
-                        controller: lastNameController,
-                        obscureText: false,
-                        focusNode: larstNameFocusNode,
-                        toggleObscureText: null,
-                        validator: null,
-                        prefIcon: const Icon(Icons.person),
-                        labelText: 'Nhập họ của bạn (Optional)',
-                        textInputAction: TextInputAction.next,
-                        isNonPasswordField: true,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
+
                       StatefulBuilder(
                         builder: (BuildContext context, StateSetter setState) {
                           return Row(
@@ -260,7 +241,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   }
                                 },
                                 child: Text(
-                                  DateFormat("E, d MMM yyyy")
+                                  DateFormat("E, d MMM yyyy", "vi")
                                       .format(selectedDate)
                                       .toString(),
                                   style: ThemeText.size40Black,
@@ -317,7 +298,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: buttonInkwell(
                           marginBtn: EdgeInsets.zero,
                           paddingBtn: EdgeInsets.zero,
-                          title: 'Register',
+                          title: 'Đăng ký',
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               bloc.add(
@@ -327,10 +308,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     passwordController.text,
                                   ),
                                   gender: gender,
-                                  firstName: firstNameController.text,
-                                  lastName: lastNameController.text,
+                                  displayName: displayNameController.text,
                                   dateOfBirth:
-                                      '${DateFormat("E, d MMM yyyy").format(selectedDate).toString()}',
+                                      '${DateFormat("E, d MMM yyyy", "vi").format(selectedDate).toString()}',
                                 ),
                               );
                             }
@@ -344,13 +324,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text('Already Have an account?'),
+                          const Text('bạn đã có tài khoản?'),
                           TextButton(
                               onPressed: () {
                                 GetInstance.navigator.pop();
                               },
                               child: const Text(
-                                'Log in',
+                                'Đăng nhập',
                                 style: TextStyle(color: Colors.blue),
                               ))
                         ],

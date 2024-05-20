@@ -30,7 +30,7 @@ class CustomAppbar extends AppBar {
           leading: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              if (!HelperCheck.empty(iconLeft))
+              if (!HelperChecker.empty(iconLeft))
                 Padding(
                   padding: const EdgeInsets.only(right: 0),
                   child: buttonAppbar(
@@ -38,7 +38,7 @@ class CustomAppbar extends AppBar {
                     onTap: onTapLeading,
                   ),
                 ),
-              if (!HelperCheck.empty(title))
+              if (!HelperChecker.empty(title))
                 Flexible(
                   child: Padding(
                     padding: paddingLeft ?? EdgeInsets.zero,
@@ -54,7 +54,7 @@ class CustomAppbar extends AppBar {
             ],
           ),
           actions: [
-            if (!HelperCheck.empty(iconRight))
+            if (!HelperChecker.empty(iconRight))
               Padding(
                 padding: paddingRight ?? EdgeInsets.only(right: 20.sp),
                 child: buttonAppbar(

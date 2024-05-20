@@ -138,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: buttonInkwell(
                     marginBtn: EdgeInsets.zero,
                     paddingBtn: EdgeInsets.zero,
-                    title: 'Log in',
+                    title: 'Đăng nhập',
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         bloc.add(AuthEventLogin(
@@ -158,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     GetInstance.navigator.pushNamed(ConstRouter.forgotPassword);
                   },
                   child: Text(
-                    'forgot password?',
+                    'Quên mật khẩu?',
                     style: ThemeText.size40BlackBold,
                   ),
                 ),
@@ -169,12 +169,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don't have an account yet?"),
+                    const Text("Bạn chưa có tài khoản?"),
                     TextButton(
                       onPressed: () {
                         GetInstance.navigator.pushNamed(ConstRouter.register);
                       },
-                      child: const Text('Regsiter'),
+                      child: const Text('Đăng ký'),
                     )
                   ],
                 )

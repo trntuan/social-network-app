@@ -5,6 +5,7 @@ import '../../screens/auth/forgot_password_screen.dart';
 import '../../screens/auth/login_screen.dart';
 import '../../screens/auth/register_screen.dart';
 import '../../screens/home/home_screen.dart';
+import '../../screens/home/post_new_letter.dart';
 import '../../screens/splash/splash_screen.dart';
 import 'config_navigator.dart';
 
@@ -47,7 +48,14 @@ class SetupRouter {
         builder: (context, state) {
           return const HomeScreen();
         },
-      )
+      ),
+      GoRoute(
+        name: ConstRouter.postNewletter,
+        path: '/${ConstRouter.postNewletter}',
+        builder: (context, state) {
+          return const PostNewLetter();
+        },
+      ),
     ],
   );
 }
