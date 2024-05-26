@@ -13,3 +13,8 @@ class GetPost extends HomePageEvent with _$GetPost {
 class GetMorePost extends HomePageEvent with _$GetPost {
   const factory GetMorePost() = _GetMorePost;
 }
+
+@freezed
+class LikePost extends HomePageEvent with _$LikePost {
+  const factory LikePost(int? postId, {int? value}) = _LikePost;
+}

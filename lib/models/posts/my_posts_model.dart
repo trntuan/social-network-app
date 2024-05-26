@@ -11,6 +11,7 @@ class MyPostModel {
   final String commentCount;
   final String credibilityCount;
   final List<String> imageUrls;
+  int? likeValue;
 
   MyPostModel({
     required this.postId,
@@ -23,6 +24,7 @@ class MyPostModel {
     required this.credibilityCount,
     required this.imageUrls,
     this.avatar,
+    this.likeValue,
   });
 
   factory MyPostModel.fromJson(Map<String, dynamic> json) {
@@ -37,6 +39,7 @@ class MyPostModel {
       commentCount: json['commentCount'],
       credibilityCount: json['credibilityCount'],
       imageUrls: List<String>.from(json['post_image_url']),
+      likeValue: json['like_value'],
     );
   }
 

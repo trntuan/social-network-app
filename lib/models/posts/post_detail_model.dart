@@ -8,6 +8,7 @@ class PostDetailModel {
   String? userAvatar;
   String? commentCount;
   String? credibilityCount;
+  int? likeValue;
   List<String>? postImageUrl;
 
   PostDetailModel({
@@ -21,6 +22,7 @@ class PostDetailModel {
     this.commentCount,
     this.credibilityCount,
     this.postImageUrl,
+    this.likeValue,
   });
 
   PostDetailModel.fromJson(Map<String, dynamic> json) {
@@ -34,5 +36,6 @@ class PostDetailModel {
     commentCount = json['commentCount'];
     credibilityCount = json['credibilityCount'];
     postImageUrl = json['post_image_url'].cast<String>();
+    likeValue = json['like_value'];
   }
 }

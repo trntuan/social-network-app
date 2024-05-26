@@ -8,19 +8,22 @@ class PostListModel {
   String? userAvatar;
   String? commentCount;
   String? credibilityCount;
+  int? likeValue;
   List<String>? postImageUrl;
 
-  PostListModel(
-      {this.postPostId,
-      this.postContent,
-      this.postUserPost,
-      this.postPrivacyType,
-      this.postCreatedDate,
-      this.userDisplayName,
-      this.userAvatar,
-      this.commentCount,
-      this.credibilityCount,
-      this.postImageUrl});
+  PostListModel({
+    this.postPostId,
+    this.postContent,
+    this.postUserPost,
+    this.postPrivacyType,
+    this.postCreatedDate,
+    this.userDisplayName,
+    this.userAvatar,
+    this.commentCount,
+    this.credibilityCount,
+    this.postImageUrl,
+    this.likeValue,
+  });
 
   PostListModel.fromJson(Map<String, dynamic> json) {
     postPostId = json['post_post_id'];
@@ -33,5 +36,6 @@ class PostListModel {
     commentCount = json['commentCount'];
     credibilityCount = json['credibilityCount'];
     postImageUrl = json['post_image_url'].cast<String>();
+    likeValue = json['like_value'];
   }
 }

@@ -5,12 +5,14 @@ class ConstPathPost {
 
   static const postNewLetter = 'post';
   static const postComment = 'post/comment';
+
+  static const likePost = 'post/like';
 }
 
 class ConstPathGet {
   static const allMyPosts = 'post/all_my_post';
   static const allTeam = 'team/all';
-  static const allPosts = 'post/all_posts';
-  static const postDetail = 'post/detail';
+  static const allPosts = 'post/all_posts_personal';
+  static const postDetail = 'post/detail_personal';
   static const commentPost = 'post/comment';
 }

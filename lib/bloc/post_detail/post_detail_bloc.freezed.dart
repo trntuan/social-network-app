@@ -265,6 +265,139 @@ abstract class _Send implements SendComment {
 }
 
 /// @nodoc
+mixin _$LikePost {
+  int? get postId => throw _privateConstructorUsedError;
+  int? get value => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $LikePostCopyWith<LikePost> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LikePostCopyWith<$Res> {
+  factory $LikePostCopyWith(LikePost value, $Res Function(LikePost) then) =
+      _$LikePostCopyWithImpl<$Res, LikePost>;
+  @useResult
+  $Res call({int? postId, int? value});
+}
+
+/// @nodoc
+class _$LikePostCopyWithImpl<$Res, $Val extends LikePost>
+    implements $LikePostCopyWith<$Res> {
+  _$LikePostCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? postId = freezed,
+    Object? value = freezed,
+  }) {
+    return _then(_value.copyWith(
+      postId: freezed == postId
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$LikePostImplCopyWith<$Res>
+    implements $LikePostCopyWith<$Res> {
+  factory _$$LikePostImplCopyWith(
+          _$LikePostImpl value, $Res Function(_$LikePostImpl) then) =
+      __$$LikePostImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int? postId, int? value});
+}
+
+/// @nodoc
+class __$$LikePostImplCopyWithImpl<$Res>
+    extends _$LikePostCopyWithImpl<$Res, _$LikePostImpl>
+    implements _$$LikePostImplCopyWith<$Res> {
+  __$$LikePostImplCopyWithImpl(
+      _$LikePostImpl _value, $Res Function(_$LikePostImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? postId = freezed,
+    Object? value = freezed,
+  }) {
+    return _then(_$LikePostImpl(
+      freezed == postId
+          ? _value.postId
+          : postId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LikePostImpl implements _LikePost {
+  const _$LikePostImpl(this.postId, {this.value});
+
+  @override
+  final int? postId;
+  @override
+  final int? value;
+
+  @override
+  String toString() {
+    return 'LikePost(postId: $postId, value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LikePostImpl &&
+            (identical(other.postId, postId) || other.postId == postId) &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, postId, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LikePostImplCopyWith<_$LikePostImpl> get copyWith =>
+      __$$LikePostImplCopyWithImpl<_$LikePostImpl>(this, _$identity);
+}
+
+abstract class _LikePost implements LikePost {
+  const factory _LikePost(final int? postId, {final int? value}) =
+      _$LikePostImpl;
+
+  @override
+  int? get postId;
+  @override
+  int? get value;
+  @override
+  @JsonKey(ignore: true)
+  _$$LikePostImplCopyWith<_$LikePostImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$GetComemnt {
   int? get postId => throw _privateConstructorUsedError;
 

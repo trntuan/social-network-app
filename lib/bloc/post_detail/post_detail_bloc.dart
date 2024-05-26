@@ -8,6 +8,7 @@ import '../../models/posts/post_detail_model.dart';
 import '../../services/api/api_get/api_get_detail.dart';
 import '../../services/api/api_get/api_get_list.dart';
 import '../../services/api/api_post/api_comment.dart';
+import '../../services/api/api_post/api_ilke_post.dart';
 
 part 'post_detail_event.dart';
 part 'post_detail_state.dart';
@@ -41,6 +42,7 @@ class PostDetailBloc extends Bloc<PostDetailEvent, PostDetailState> {
 
           if (result.isSuccess) {
             textEditingController.clear();
+            add(GetPostDetail(state.postDetail?.postPostId));
             add(GetComemnt(event.postId));
           }
           // send comment
@@ -55,6 +57,21 @@ class PostDetailBloc extends Bloc<PostDetailEvent, PostDetailState> {
           postId: event.postId,
         );
         emit(state.copyWith(comments: data));
+      },
+    );
+
+    // apiLikePost
+    on<LikePost>(
+      (event, emit) async {
+        // like post
+        final result = await apiLikePost(
+          event.postId,
+          event.value,
+        );
+
+        if (result.isSuccess) {
+          add(GetPostDetail(state.postDetail?.postPostId));
+        }
       },
     );
   }

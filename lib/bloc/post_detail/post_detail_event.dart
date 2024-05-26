@@ -17,6 +17,11 @@ class SendComment extends PostDetailEvent with _$SendComment {
 }
 
 @freezed
+class LikePost extends PostDetailEvent with _$LikePost {
+  const factory LikePost(int? postId, {int? value}) = _LikePost;
+}
+
+@freezed
 class GetComemnt extends PostDetailEvent with _$GetComemnt {
   const factory GetComemnt(
     int? postId,

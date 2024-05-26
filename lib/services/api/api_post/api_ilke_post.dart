@@ -3,20 +3,19 @@ import '../../../helpers/helper_log.dart';
 import '../../../models/response/response_message.dart';
 import '../api_service.dart';
 
-Future<ResponseMessage> apiPostComment(
+Future<ResponseMessage> apiLikePost(
   int? posstId,
-  String content, {
-  int? parentContentId,
-}) async {
+  int? value,
+) async {
   final params = {
     "post_id": "$posstId",
-    "content": "$content",
+    "value": "$value",
   };
   final ResponseMessage responseMessage = ResponseMessage();
 
   try {
     final response = await ApiService.singleton.post(
-      ConstPathPost.postComment,
+      ConstPathPost.likePost,
       params,
     );
     HelperLog.showLTest('response?.statusCode ${response?.statusCode}');
