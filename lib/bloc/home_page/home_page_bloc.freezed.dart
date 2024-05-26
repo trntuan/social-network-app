@@ -137,7 +137,7 @@ abstract class _GetMorePost implements GetMorePost {
 
 /// @nodoc
 mixin _$HomePageState {
-  List<MyPostsModel>? get myPosts => throw _privateConstructorUsedError;
+  List<PostListModel?> get myPosts => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isLoadMore => throw _privateConstructorUsedError;
 
@@ -152,7 +152,7 @@ abstract class $HomePageStateCopyWith<$Res> {
           HomePageState value, $Res Function(HomePageState) then) =
       _$HomePageStateCopyWithImpl<$Res, HomePageState>;
   @useResult
-  $Res call({List<MyPostsModel>? myPosts, bool isLoading, bool isLoadMore});
+  $Res call({List<PostListModel?> myPosts, bool isLoading, bool isLoadMore});
 }
 
 /// @nodoc
@@ -168,15 +168,15 @@ class _$HomePageStateCopyWithImpl<$Res, $Val extends HomePageState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? myPosts = freezed,
+    Object? myPosts = null,
     Object? isLoading = null,
     Object? isLoadMore = null,
   }) {
     return _then(_value.copyWith(
-      myPosts: freezed == myPosts
+      myPosts: null == myPosts
           ? _value.myPosts
           : myPosts // ignore: cast_nullable_to_non_nullable
-              as List<MyPostsModel>?,
+              as List<PostListModel?>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -197,7 +197,7 @@ abstract class _$$HomePageStateImplCopyWith<$Res>
       __$$HomePageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<MyPostsModel>? myPosts, bool isLoading, bool isLoadMore});
+  $Res call({List<PostListModel?> myPosts, bool isLoading, bool isLoadMore});
 }
 
 /// @nodoc
@@ -211,15 +211,15 @@ class __$$HomePageStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? myPosts = freezed,
+    Object? myPosts = null,
     Object? isLoading = null,
     Object? isLoadMore = null,
   }) {
     return _then(_$HomePageStateImpl(
-      myPosts: freezed == myPosts
+      myPosts: null == myPosts
           ? _value._myPosts
           : myPosts // ignore: cast_nullable_to_non_nullable
-              as List<MyPostsModel>?,
+              as List<PostListModel?>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -236,19 +236,18 @@ class __$$HomePageStateImplCopyWithImpl<$Res>
 
 class _$HomePageStateImpl implements _HomePageState {
   const _$HomePageStateImpl(
-      {final List<MyPostsModel>? myPosts,
+      {final List<PostListModel?> myPosts = const [],
       this.isLoading = false,
       this.isLoadMore = false})
       : _myPosts = myPosts;
 
-  final List<MyPostsModel>? _myPosts;
+  final List<PostListModel?> _myPosts;
   @override
-  List<MyPostsModel>? get myPosts {
-    final value = _myPosts;
-    if (value == null) return null;
+  @JsonKey()
+  List<PostListModel?> get myPosts {
     if (_myPosts is EqualUnmodifiableListView) return _myPosts;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_myPosts);
   }
 
   @override
@@ -288,12 +287,12 @@ class _$HomePageStateImpl implements _HomePageState {
 
 abstract class _HomePageState implements HomePageState {
   const factory _HomePageState(
-      {final List<MyPostsModel>? myPosts,
+      {final List<PostListModel?> myPosts,
       final bool isLoading,
       final bool isLoadMore}) = _$HomePageStateImpl;
 
   @override
-  List<MyPostsModel>? get myPosts;
+  List<PostListModel?> get myPosts;
   @override
   bool get isLoading;
   @override

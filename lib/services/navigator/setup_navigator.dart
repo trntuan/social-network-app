@@ -6,6 +6,7 @@ import '../../screens/auth/login_screen.dart';
 import '../../screens/auth/register_screen.dart';
 import '../../screens/home/home_screen.dart';
 import '../../screens/home/post_new_letter.dart';
+import '../../screens/post_detail/post_detail_screen.dart';
 import '../../screens/splash/splash_screen.dart';
 import 'config_navigator.dart';
 
@@ -54,6 +55,16 @@ class SetupRouter {
         path: '/${ConstRouter.postNewletter}',
         builder: (context, state) {
           return const PostNewLetter();
+        },
+      ),
+      GoRoute(
+        name: ConstRouter.postDetail,
+        path: '/${ConstRouter.postDetail}',
+        builder: (context, state) {
+          final prams = state.extra as int?;
+          return PostDetailScreen(
+            postId: prams,
+          );
         },
       ),
     ],

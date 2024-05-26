@@ -32,7 +32,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
 
     if (result.isSuccess) {
-      await GetInstance.navigator.pushReplacementNamed(ConstRouter.home);
+      await GetStores.navigator.pushReplacementNamed(ConstRouter.home);
     } else {
       await dialogPopup(
         title: 'Thông báo',
@@ -60,7 +60,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         msg: 'Đăng ký Thành công',
         useDeny: false,
         actionAccept: () {
-          GetInstance.navigator.pushReplacementNamed(ConstRouter.home);
+          GetStores.navigator.pushReplacementNamed(ConstRouter.home);
         },
         //  onClosed: (p0) {
         //  GetInstance.navigator.pop(ConstRouter.home);

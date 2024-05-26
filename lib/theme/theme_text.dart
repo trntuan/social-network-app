@@ -41,6 +41,10 @@ class CustomTextStyle extends TextStyle {
       );
 }
 
+class SizeText {
+  static final nomal = 90.sp;
+}
+
 class ThemeText {
   static final size63Red5d = CustomTextStyle(
     color: ThemeColors.red5d,
@@ -93,6 +97,11 @@ class ThemeText {
 
   static final size80BlackBold = CustomTextStyle.bold(
     color: Colors.black,
+    fontSize: 80.sp,
+  );
+
+  static final size30WhiteBold = CustomTextStyle.bold(
+    color: Colors.white,
     fontSize: 80.sp,
   );
 }

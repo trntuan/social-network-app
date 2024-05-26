@@ -50,6 +50,7 @@ Future<ResponseMessage> apiPostLogin(ParamLogin loginParam) async {
     final response = await ApiService.singleton.post(
       ConstPathPost.login,
       params,
+      false,
     );
 
     responseMessage = HelperApi.handlePostResponse(response);

@@ -155,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 TextButton(
                   onPressed: () {
-                    GetInstance.navigator.pushNamed(ConstRouter.forgotPassword);
+                    GetStores.navigator.pushNamed(ConstRouter.forgotPassword);
                   },
                   child: Text(
                     'Quên mật khẩu?',
@@ -172,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const Text("Bạn chưa có tài khoản?"),
                     TextButton(
                       onPressed: () {
-                        GetInstance.navigator.pushNamed(ConstRouter.register);
+                        GetStores.navigator.pushNamed(ConstRouter.register);
                       },
                       child: const Text('Đăng ký'),
                     )

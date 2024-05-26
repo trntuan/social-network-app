@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../extension/go_router_extension.dart';
+import '../../models/params/params_gallery_image.dart';
+import '../../widgets/gallery_image/gallery_image.dart';
 
 @lazySingleton
 class ConfigNavigator {
@@ -35,13 +37,13 @@ class ConfigNavigator {
     return null;
   }
 
-  // void goGalleryImage(ParamsGalleryImage params) {
-  //   navigatorKey.currentState?.push(
-  //     GalleryImage(
-  //       params: params,
-  //     ),
-  //   );
-  // }
+  void goGalleryImage(ParamsGalleryImage params) {
+    navigatorKey.currentState?.push(
+      GalleryImage(
+        params: params,
+      ),
+    );
+  }
 
   Future<T?> pushReplacementNamed<T extends Object?>(
     String name, {

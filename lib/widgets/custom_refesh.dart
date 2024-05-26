@@ -1,9 +1,8 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../helpers/helper_check.dart';
-import '../theme/theme_color.dart';
+import 'custom_load.dart';
 
 Widget refreshList({
   required Widget? child,
@@ -12,7 +11,7 @@ Widget refreshList({
   // bool isShowEmptyList = true,
   // ignore: strict_raw_type
   List? itemList,
-  String emptyContent = 'không có gì ở đây',
+  String emptyContent = '',
   Function()? onRefresh,
   Function()? onLoad,
 }) =>
@@ -56,7 +55,7 @@ class CustomEasyRefresh extends EasyRefresh {
     bool isLoadingMore = false,
   }) : super(
           header: const MaterialHeader(
-            color: ThemeColors.brown51,
+            color: Colors.black,
           ),
           footer: ClassicFooter(
             messageText: '',
@@ -68,38 +67,4 @@ class CustomEasyRefresh extends EasyRefresh {
             },
           ),
         );
-}
-
-Widget screenListEmty({
-  String content = '',
-  TextStyle? style,
-}) =>
-    Stack(
-      children: [
-        SingleChildScrollView(
-          child: Container(
-            height: 1.sh,
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 15.sp,
-          ),
-          child: Center(
-            child: Text(
-              content,
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
-      ],
-    );
-
-Widget widgetLoadMore() {
-  return Container(
-    alignment: Alignment.center,
-    child: const CircularProgressIndicator(
-      color: ThemeColors.brown51,
-    ),
-  );
 }

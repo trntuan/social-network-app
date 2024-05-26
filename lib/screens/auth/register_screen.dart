@@ -327,7 +327,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           const Text('bạn đã có tài khoản?'),
                           TextButton(
                               onPressed: () {
-                                GetInstance.navigator.pop();
+                                GetStores.navigator.pop();
                               },
                               child: const Text(
                                 'Đăng nhập',

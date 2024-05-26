@@ -56,7 +56,7 @@ class _SettingScreenState extends State<SettingScreen> {
           msg: 'bạn có chắc chắn muốn đăng xuất ?',
           actionAccept: () {
             StorageService.deleteData();
-            GetInstance.navigator.pushReplacementNamed(ConstRouter.login);
+            GetStores.navigator.pushReplacementNamed(ConstRouter.login);
           },
         );
       },

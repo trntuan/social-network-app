@@ -5,7 +5,16 @@ import 'package:get_it/get_it.dart';
 
 import '../../bloc/home_page/home_page_bloc.dart';
 import '../../const/const_router.dart';
+import '../../helpers/helper_action.dart';
+import '../../helpers/helper_check.dart';
+import '../../helpers/helper_decode.dart';
+import '../../models/params/params_gallery_image.dart';
 import '../../services/get_it/get_instance.dart';
+import '../../widgets/custom_load.dart';
+import '../../widgets/expandable_text.dart';
+import '../../widgets/load_screen.dart';
+import '../../widgets/photo_grid.dart';
+import '../../widgets/widget_post/widget_post.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,16 +43,17 @@ class _HomePageState extends State<HomePage> {
       create: (context) => bloc,
       child: BlocBuilder<HomePageBloc, HomePageState>(
         builder: (context, state) {
-          return Scaffold(
-              body: SingleChildScrollView(
-            child: Container(
+          return showLoadScreen(
+            isload: state.isLoading,
+            child: Scaffold(
+                body: Container(
               color: Colors.grey,
               child: Column(
                 children: [
                   GestureDetector(
                     onTap: () {
                       // GetInstance.navigator.pop();
-                      GetInstance.navigator.pushNamed(
+                      GetStores.navigator.pushNamed(
                         ConstRouter.postNewletter,
                       );
                     },
@@ -88,18 +98,193 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  const Center(
-                      child: Text(
-                    'Home Page',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  Flexible(
+                    child: refreshList(
+                      emptyContent: 'bạn đã xem hết bài viết',
+                      onRefresh: getData,
+                      onLoad: () => bloc.add(const GetMorePost()),
+                      child: ListView.builder(
+                        // reverse: true,
+                        controller: bloc.controller,
+                        itemCount: state.myPosts.length,
+                        itemBuilder: (context, index) {
+                          final item = state.myPosts[index];
+                          return InkWell(
+                            onTap: () {
+                              GetStores.navigator.pushNamed<int>(
+                                ConstRouter.postDetail,
+                                extra: item?.postPostId,
+                              );
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(
+                                top: 20.sp,
+                                bottom: 20.sp,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: Colors.grey,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            titlePost(
+                                              onTap: () {
+                                                // GetStores.navigator.goProfile(
+                                                //   ParamsProfile(
+                                                //     userId: item?.userId ?? '',
+                                                //   ),
+                                                // );
+                                              },
+                                              avatar: item?.userAvatar,
+                                              name: item?.userDisplayName,
+                                            ),
+                                            const Icon(
+                                              Icons.info,
+                                              size: 30,
+                                            )
+                                          ],
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 20.sp),
+                                          child: Text(
+                                            HelperDecode
+                                                .convertToVietnameseDateTime(
+                                                    item?.postCreatedDate
+                                                        .toString()),
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 20.sp),
+                                          child: ExpandableText(
+                                              "${item?.postContent}"),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  if (!HelperChecker.empty(item?.postImageUrl))
+                                    Flexible(
+                                      child: AlbumPost(
+                                        images: HelperAction.getImages(
+                                            item?.postImageUrl ?? []),
+                                        onImageTap: (imageUrl) {
+                                          GetStores.navigator.goGalleryImage(
+                                            ParamsGalleryImage(
+                                              tag: 'image ',
+                                              urlImage: imageUrl,
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'Số lượt thích: ${item?.credibilityCount}',
+                                              style: TextStyle(
+                                                fontSize: 40.sp,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                            IconButton(
+                                              padding: EdgeInsets.only(
+                                                bottom: 10.sp,
+                                              ),
+                                              onPressed: () {
+                                                // bloc.add(
+                                                //   LikePost(
+                                                //     postId: item?.id ?? '',
+                                                //   ),
+                                                // );
+                                              },
+                                              icon: const Icon(
+                                                // item?.isLike == true
+                                                //     ? Icons.favorite
+                                                //     :
+                                                Icons.thumb_up_alt,
+                                                color:
+                                                    //  item?.isLike == true
+                                                    //     ? Colors.red
+                                                    //     :
+                                                    Colors.black,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          width: 30.sp,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'Số lượt bình luận: ${item?.commentCount}',
+                                              style: TextStyle(
+                                                fontSize: 40.sp,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                            IconButton(
+                                              padding: EdgeInsets.only(
+                                                bottom: 5.sp,
+                                              ),
+                                              onPressed: () {
+                                                // bloc.add(
+                                                //   LikePost(
+                                                //     postId: item?.id ?? '',
+                                                //   ),
+                                                // );
+                                              },
+                                              icon: const Icon(
+                                                // item?.isLike == true
+                                                //     ? Icons.favorite
+                                                //     :
+                                                Icons.comment,
+                                                color:
+                                                    //  item?.isLike == true
+                                                    //     ? Colors.red
+                                                    //     :
+                                                    Colors.black,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                  )),
+                  ),
                 ],
               ),
-            ),
-          ));
+            )),
+          );
         },
       ),
     );

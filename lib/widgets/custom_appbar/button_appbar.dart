@@ -3,6 +3,7 @@ import '../../services/get_it/get_instance.dart';
 
 enum IconAppbar {
   back,
+  close,
   setting,
 }
 
@@ -14,12 +15,23 @@ Widget buttonAppbar({
     case IconAppbar.back:
       return TextButton(
         onPressed: () {
-          GetInstance.navigator.pop();
+          GetStores.navigator.pop();
         },
         child: const Icon(
           Icons.arrow_back_rounded,
           color: Colors.black,
           size: 30,
+        ),
+      );
+    case IconAppbar.close:
+      return TextButton(
+        onPressed: () {
+          GetStores.navigator.pop();
+        },
+        child: const Icon(
+          Icons.close_rounded,
+          color: Colors.white,
+          size: 50,
         ),
       );
     case IconAppbar.setting:
@@ -34,7 +46,7 @@ Widget buttonAppbar({
     default:
       return TextButton(
         onPressed: () {
-          GetInstance.navigator.pop();
+          GetStores.navigator.pop();
         },
         child: const Icon(
           Icons.arrow_back_rounded,

@@ -46,9 +46,9 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     );
 
     if (result.isSuccess) {
-      await GetInstance.navigator.pushReplacementNamed(ConstRouter.home);
+      await GetStores.navigator.pushReplacementNamed(ConstRouter.home);
     } else {
-      await GetInstance.navigator.pushReplacementNamed(ConstRouter.login);
+      await GetStores.navigator.pushReplacementNamed(ConstRouter.login);
     }
   }
 

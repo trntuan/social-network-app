@@ -6,7 +6,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../services/api/api_post/api_my_post.dart';
+import '../../services/api/api_post/api_post_letter.dart';
+import '../../services/get_it/get_instance.dart';
 import '../../widgets/dialog_popup.dart';
 
 part 'post_new_letter_bloc.freezed.dart';
@@ -60,6 +61,9 @@ class PostNewLetterBloc extends Bloc<PostNewLetterEvent, PostNewLetterState> {
               title: 'Thông báo',
               msg: 'đăng thành công',
               useDeny: false,
+              actionAccept: () async {
+                GetStores.navigator.pop();
+              },
             );
           } else {
             // fail

@@ -94,9 +94,12 @@ class ApiService {
     try {
       // if (await HelperApi.deviceIdNotEmpty(path)) {
       final apiUri = HelperApi.buildUri(path);
-      // if (addToken) {
-      //   body?[ConstKeys.token] = token;
-      // }
+      final Map<String, String> headers = {};
+
+// Kiểm tra và thêm token vào headers
+      if (addToken) {
+        headers['Authorization'] = 'Bearer $token';
+      }
 
       /// log call
       HelperLog.logApiCall(
@@ -108,7 +111,7 @@ class ApiService {
 
       final response = await iOClient.post(
         apiUri,
-        // headers: headers,
+        headers: headers,
         body: body,
       );
 
@@ -162,7 +165,7 @@ class ApiService {
     }
 
     final response = await request.send();
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 || response.statusCode == 201) {
       // Upload successful
 
       HelperLog.logInfo('Upload successful');
