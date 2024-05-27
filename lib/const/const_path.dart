@@ -15,4 +15,6 @@ class ConstPathGet {
   static const allPosts = 'post/all_posts_personal';
   static const postDetail = 'post/detail_personal';
   static const commentPost = 'post/comment';
+
+  static const friendRecommend = 'user/friend_recommend';
 }

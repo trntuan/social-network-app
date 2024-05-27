@@ -9,6 +9,7 @@ import '../../helpers/helper_action.dart';
 import '../../helpers/helper_check.dart';
 import '../../helpers/helper_decode.dart';
 import '../../models/params/params_gallery_image.dart';
+import '../../models/posts/post_detail_model.dart';
 import '../../services/get_it/get_instance.dart';
 import '../../theme/theme_color.dart';
 import '../../widgets/custom_appbar/button_appbar.dart';
@@ -17,7 +18,6 @@ import '../../widgets/custom_appbar/custom_text_form.dart';
 import '../../widgets/expandable_text.dart';
 import '../../widgets/photo_grid.dart';
 import '../../widgets/widget_post/widget_post.dart';
-import '../../models/posts/post_detail_model.dart';
 
 class PostDetailScreen extends StatefulWidget {
   final int? postId;

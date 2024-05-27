@@ -5,6 +5,7 @@ import '../../../../models/posts/comment_model.dart';
 import '../../../helpers/helper_check.dart';
 import '../../../helpers/helper_log.dart';
 import '../../../models/posts/all_posts_model.dart';
+import '../../../models/posts/friend_recommend_model.dart';
 import '../../../models/posts/my_posts_model.dart';
 import '../api_service.dart';
 
@@ -124,4 +125,30 @@ Future<List<CommentsModel?>> apiGetComment({
   }
 
   return comments;
+}
+
+Future<List<FriendRecommendModel?>> apiGetFriendRecommend() async {
+  List<FriendRecommendModel> friendRecommend = [];
+
+  try {
+    final response = await ApiService.singleton.get(
+      ConstPathGet.friendRecommend,
+    );
+
+    if (!HelperChecker.empty(response?.body)) {
+      final List<dynamic> jsonData =
+          jsonDecode(response?.body.toString() ?? '');
+      friendRecommend =
+          jsonData.map((item) => FriendRecommendModel.fromJson(item)).toList();
+    }
+
+    return friendRecommend;
+  } catch (errors, stackTrace) {
+    HelperLog.logCatchErrors(
+      errors: errors,
+      stackTrace: stackTrace,
+    );
+  }
+
+  return friendRecommend;
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../friend/friend_home.dart';
 import '../home_page/home_page.dart';
 import '../setting/setting_screen.dart';
 import 'custom_appbar_home.dart';
@@ -59,9 +60,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         controller: _tabController,
         children: const <Widget>[
           HomePage(),
-          Center(
-            child: Text("bạn bè"),
-          ),
+          FriendHome(),
           Center(
             child: Text("nhóm"),
           ),
