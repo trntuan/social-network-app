@@ -6,4 +6,5 @@ class ConstRouter {
   static const String home = 'home';
   static const String postDetail = 'postDetail';
   static const String postNewletter = 'postNewletter';
+  static const String myPage = 'myPage';
 }

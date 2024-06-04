@@ -13,11 +13,12 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:social_network_app/bloc/auth/auth_bloc.dart' as _i3;
 import 'package:social_network_app/bloc/friend/friend_bloc.dart' as _i5;
 import 'package:social_network_app/bloc/home_page/home_page_bloc.dart' as _i6;
+import 'package:social_network_app/bloc/my_page/my_page_bloc.dart' as _i7;
 import 'package:social_network_app/bloc/post_detail/post_detail_bloc.dart'
-    as _i7;
-import 'package:social_network_app/bloc/post_new_letter/post_new_letter_bloc.dart'
     as _i8;
-import 'package:social_network_app/bloc/splash/splash_bloc.dart' as _i9;
+import 'package:social_network_app/bloc/post_new_letter/post_new_letter_bloc.dart'
+    as _i9;
+import 'package:social_network_app/bloc/splash/splash_bloc.dart' as _i10;
 import 'package:social_network_app/services/navigator/config_navigator.dart'
     as _i4;
 
@@ -36,9 +37,10 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i4.ConfigNavigator>(() => const _i4.ConfigNavigator());
     gh.factory<_i5.FriendBloc>(() => _i5.FriendBloc());
     gh.factory<_i6.HomePageBloc>(() => _i6.HomePageBloc());
-    gh.factory<_i7.PostDetailBloc>(() => _i7.PostDetailBloc());
-    gh.factory<_i8.PostNewLetterBloc>(() => _i8.PostNewLetterBloc());
-    gh.factory<_i9.SplashBloc>(() => _i9.SplashBloc());
+    gh.factory<_i7.MyPageBloc>(() => _i7.MyPageBloc());
+    gh.factory<_i8.PostDetailBloc>(() => _i8.PostDetailBloc());
+    gh.factory<_i9.PostNewLetterBloc>(() => _i9.PostNewLetterBloc());
+    gh.factory<_i10.SplashBloc>(() => _i10.SplashBloc());
     return this;
   }
 }

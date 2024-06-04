@@ -73,33 +73,3 @@ Future<ResponseMessage> apiPostLogin(ParamLogin loginParam) async {
 
   return responseMessage;
 }
-
-// Future<ResponseMessage> apiGetAllMyPost() async {
-//   ResponseMessage responseMessage = ResponseMessage();
-
-//   try {
-//     final response = await ApiService.singleton.post(
-//       ConstPathPost.login,
-//       // params,
-//     );
-
-//     responseMessage = HelperApi.handlePostResponse(response);
-
-//     if (responseMessage.isSuccess) {
-//       final data = HelperApi.returnBody(response, true);
-
-//       MyDataStorage.singleton.fromMap(data);
-
-//       await StorageService.writeData();
-//     }
-
-//     return responseMessage;
-//   } catch (errors, stackTrace) {
-//     HelperLog.logCatchErrors(
-//       errors: errors,
-//       stackTrace: stackTrace,
-//     );
-//   }
-
-//   return responseMessage;
-// }

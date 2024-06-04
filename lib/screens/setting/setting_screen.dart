@@ -20,8 +20,10 @@ class _SettingScreenState extends State<SettingScreen> {
   final listItemSetting = <ParamSetting>[
     ParamSetting(
       name: 'Trang Cá nhân',
-      onTap: () {
-        // ConfigNavigator().pushNamed('account');
+      onTap: () async {
+        await GetStores.navigator.pushNamed(
+          ConstRouter.myPage,
+        );
       },
     ),
     ParamSetting(

@@ -2,7 +2,7 @@ class FriendRecommendModel {
   int? userId;
   String? displayMame;
   String? avatar;
-  String? commonFriends;
+  int? commonFriends;
 
   FriendRecommendModel({
     this.userId,

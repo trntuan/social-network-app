@@ -6,6 +6,7 @@ import '../../screens/auth/login_screen.dart';
 import '../../screens/auth/register_screen.dart';
 import '../../screens/home/home_screen.dart';
 import '../../screens/home/post_new_letter.dart';
+import '../../screens/my_page/my_page_screen.dart';
 import '../../screens/post_detail/post_detail_screen.dart';
 import '../../screens/splash/splash_screen.dart';
 import 'config_navigator.dart';
@@ -43,6 +44,7 @@ class SetupRouter {
           return const ForgotPasswordScreen();
         },
       ),
+
       GoRoute(
         name: ConstRouter.home,
         path: '/${ConstRouter.home}',
@@ -50,6 +52,15 @@ class SetupRouter {
           return const HomeScreen();
         },
       ),
+
+      GoRoute(
+        name: ConstRouter.myPage,
+        path: '/${ConstRouter.myPage}',
+        builder: (context, state) {
+          return const MyPageScreen();
+        },
+      ),
+      //
       GoRoute(
         name: ConstRouter.postNewletter,
         path: '/${ConstRouter.postNewletter}',
