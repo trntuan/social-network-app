@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'friend_recommend.dart';
+import 'friend_sent_to_you.dart';
+import 'friend_you_sent.dart';
+import 'my_friend.dart';
 
 class FriendHome extends StatefulWidget {
   const FriendHome({super.key});
@@ -60,9 +63,9 @@ class _FriendHomeState extends State<FriendHome> with TickerProviderStateMixin {
         controller: _tabController,
         children: const <Widget>[
           FriendRecommend(),
-          FriendRecommend(),
-          FriendRecommend(),
-          FriendRecommend(),
+          FriendSentToYou(),
+          YouSent(),
+          MyFriend(),
         ],
       ),
     );

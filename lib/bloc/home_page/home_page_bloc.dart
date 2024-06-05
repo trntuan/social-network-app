@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import '../../models/posts/all_posts_model.dart';
 import '../../services/api/api_get/api_get_list.dart';
-import '../../services/api/api_post/api_ilke_post.dart';
+import '../../services/api/api_post/api_like_post.dart';
 part 'home_page_event.dart';
 part 'home_page_state.dart';
 part 'home_page_bloc.freezed.dart';

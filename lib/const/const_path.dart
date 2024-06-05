@@ -7,6 +7,7 @@ class ConstPathPost {
   static const postComment = 'post/comment';
 
   static const likePost = 'post/like';
+  static const addFriend = 'user/add_friend';
 }
 
 class ConstPathGet {
@@ -19,4 +20,9 @@ class ConstPathGet {
   static const myDetail = 'user/my_detail';
 
   static const friendRecommend = 'user/friend_recommend';
+  static const myfriend = 'user/friend_list_auth';
+  static const friendSentToYou = 'user/friend_sent_to_you';
+  static const friendYouSent = 'user/friend_you_sent';
+
+  //
 }

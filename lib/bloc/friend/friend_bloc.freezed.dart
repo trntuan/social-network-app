@@ -138,9 +138,248 @@ abstract class _ListFriendCurent implements ListFriendCurent {
 }
 
 /// @nodoc
-mixin _$FriendState {
-  List<FriendRecommendModel?> get friendRecommend =>
+mixin _$ListFriendSendToYou {}
+
+/// @nodoc
+abstract class $ListFriendSendToYouCopyWith<$Res> {
+  factory $ListFriendSendToYouCopyWith(
+          ListFriendSendToYou value, $Res Function(ListFriendSendToYou) then) =
+      _$ListFriendSendToYouCopyWithImpl<$Res, ListFriendSendToYou>;
+}
+
+/// @nodoc
+class _$ListFriendSendToYouCopyWithImpl<$Res, $Val extends ListFriendSendToYou>
+    implements $ListFriendSendToYouCopyWith<$Res> {
+  _$ListFriendSendToYouCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$ListFriendSendToYouImplCopyWith<$Res> {
+  factory _$$ListFriendSendToYouImplCopyWith(_$ListFriendSendToYouImpl value,
+          $Res Function(_$ListFriendSendToYouImpl) then) =
+      __$$ListFriendSendToYouImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ListFriendSendToYouImplCopyWithImpl<$Res>
+    extends _$ListFriendSendToYouCopyWithImpl<$Res, _$ListFriendSendToYouImpl>
+    implements _$$ListFriendSendToYouImplCopyWith<$Res> {
+  __$$ListFriendSendToYouImplCopyWithImpl(_$ListFriendSendToYouImpl _value,
+      $Res Function(_$ListFriendSendToYouImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ListFriendSendToYouImpl implements _ListFriendSendToYou {
+  const _$ListFriendSendToYouImpl();
+
+  @override
+  String toString() {
+    return 'ListFriendSendToYou()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ListFriendSendToYouImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+abstract class _ListFriendSendToYou implements ListFriendSendToYou {
+  const factory _ListFriendSendToYou() = _$ListFriendSendToYouImpl;
+}
+
+/// @nodoc
+mixin _$ListFriendYouSent {}
+
+/// @nodoc
+abstract class $ListFriendYouSentCopyWith<$Res> {
+  factory $ListFriendYouSentCopyWith(
+          ListFriendYouSent value, $Res Function(ListFriendYouSent) then) =
+      _$ListFriendYouSentCopyWithImpl<$Res, ListFriendYouSent>;
+}
+
+/// @nodoc
+class _$ListFriendYouSentCopyWithImpl<$Res, $Val extends ListFriendYouSent>
+    implements $ListFriendYouSentCopyWith<$Res> {
+  _$ListFriendYouSentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$ListFriendYouSentImplCopyWith<$Res> {
+  factory _$$ListFriendYouSentImplCopyWith(_$ListFriendYouSentImpl value,
+          $Res Function(_$ListFriendYouSentImpl) then) =
+      __$$ListFriendYouSentImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ListFriendYouSentImplCopyWithImpl<$Res>
+    extends _$ListFriendYouSentCopyWithImpl<$Res, _$ListFriendYouSentImpl>
+    implements _$$ListFriendYouSentImplCopyWith<$Res> {
+  __$$ListFriendYouSentImplCopyWithImpl(_$ListFriendYouSentImpl _value,
+      $Res Function(_$ListFriendYouSentImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ListFriendYouSentImpl implements _ListFriendYouSent {
+  const _$ListFriendYouSentImpl();
+
+  @override
+  String toString() {
+    return 'ListFriendYouSent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ListFriendYouSentImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+abstract class _ListFriendYouSent implements ListFriendYouSent {
+  const factory _ListFriendYouSent() = _$ListFriendYouSentImpl;
+}
+
+/// @nodoc
+mixin _$AddFriend {
+  int? get friendId => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AddFriendCopyWith<AddFriend> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AddFriendCopyWith<$Res> {
+  factory $AddFriendCopyWith(AddFriend value, $Res Function(AddFriend) then) =
+      _$AddFriendCopyWithImpl<$Res, AddFriend>;
+  @useResult
+  $Res call({int? friendId});
+}
+
+/// @nodoc
+class _$AddFriendCopyWithImpl<$Res, $Val extends AddFriend>
+    implements $AddFriendCopyWith<$Res> {
+  _$AddFriendCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? friendId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      friendId: freezed == friendId
+          ? _value.friendId
+          : friendId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AddFriendImplCopyWith<$Res>
+    implements $AddFriendCopyWith<$Res> {
+  factory _$$AddFriendImplCopyWith(
+          _$AddFriendImpl value, $Res Function(_$AddFriendImpl) then) =
+      __$$AddFriendImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int? friendId});
+}
+
+/// @nodoc
+class __$$AddFriendImplCopyWithImpl<$Res>
+    extends _$AddFriendCopyWithImpl<$Res, _$AddFriendImpl>
+    implements _$$AddFriendImplCopyWith<$Res> {
+  __$$AddFriendImplCopyWithImpl(
+      _$AddFriendImpl _value, $Res Function(_$AddFriendImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? friendId = freezed,
+  }) {
+    return _then(_$AddFriendImpl(
+      freezed == friendId
+          ? _value.friendId
+          : friendId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddFriendImpl implements _AddFriend {
+  const _$AddFriendImpl(this.friendId);
+
+  @override
+  final int? friendId;
+
+  @override
+  String toString() {
+    return 'AddFriend(friendId: $friendId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddFriendImpl &&
+            (identical(other.friendId, friendId) ||
+                other.friendId == friendId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, friendId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddFriendImplCopyWith<_$AddFriendImpl> get copyWith =>
+      __$$AddFriendImplCopyWithImpl<_$AddFriendImpl>(this, _$identity);
+}
+
+abstract class _AddFriend implements AddFriend {
+  const factory _AddFriend(final int? friendId) = _$AddFriendImpl;
+
+  @override
+  int? get friendId;
+  @override
+  @JsonKey(ignore: true)
+  _$$AddFriendImplCopyWith<_$AddFriendImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$FriendState {
+  List<FriendRecommendModel?> get friend => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -154,7 +393,7 @@ abstract class $FriendStateCopyWith<$Res> {
           FriendState value, $Res Function(FriendState) then) =
       _$FriendStateCopyWithImpl<$Res, FriendState>;
   @useResult
-  $Res call({List<FriendRecommendModel?> friendRecommend, bool isLoading});
+  $Res call({List<FriendRecommendModel?> friend, bool isLoading});
 }
 
 /// @nodoc
@@ -170,13 +409,13 @@ class _$FriendStateCopyWithImpl<$Res, $Val extends FriendState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? friendRecommend = null,
+    Object? friend = null,
     Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
-      friendRecommend: null == friendRecommend
-          ? _value.friendRecommend
-          : friendRecommend // ignore: cast_nullable_to_non_nullable
+      friend: null == friend
+          ? _value.friend
+          : friend // ignore: cast_nullable_to_non_nullable
               as List<FriendRecommendModel?>,
       isLoading: null == isLoading
           ? _value.isLoading
@@ -194,7 +433,7 @@ abstract class _$$FriendStateImplCopyWith<$Res>
       __$$FriendStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<FriendRecommendModel?> friendRecommend, bool isLoading});
+  $Res call({List<FriendRecommendModel?> friend, bool isLoading});
 }
 
 /// @nodoc
@@ -208,13 +447,13 @@ class __$$FriendStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? friendRecommend = null,
+    Object? friend = null,
     Object? isLoading = null,
   }) {
     return _then(_$FriendStateImpl(
-      friendRecommend: null == friendRecommend
-          ? _value._friendRecommend
-          : friendRecommend // ignore: cast_nullable_to_non_nullable
+      friend: null == friend
+          ? _value._friend
+          : friend // ignore: cast_nullable_to_non_nullable
               as List<FriendRecommendModel?>,
       isLoading: null == isLoading
           ? _value.isLoading
@@ -228,17 +467,17 @@ class __$$FriendStateImplCopyWithImpl<$Res>
 
 class _$FriendStateImpl implements _FriendState {
   const _$FriendStateImpl(
-      {final List<FriendRecommendModel?> friendRecommend = const [],
+      {final List<FriendRecommendModel?> friend = const [],
       this.isLoading = false})
-      : _friendRecommend = friendRecommend;
+      : _friend = friend;
 
-  final List<FriendRecommendModel?> _friendRecommend;
+  final List<FriendRecommendModel?> _friend;
   @override
   @JsonKey()
-  List<FriendRecommendModel?> get friendRecommend {
-    if (_friendRecommend is EqualUnmodifiableListView) return _friendRecommend;
+  List<FriendRecommendModel?> get friend {
+    if (_friend is EqualUnmodifiableListView) return _friend;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_friendRecommend);
+    return EqualUnmodifiableListView(_friend);
   }
 
   @override
@@ -247,7 +486,7 @@ class _$FriendStateImpl implements _FriendState {
 
   @override
   String toString() {
-    return 'FriendState(friendRecommend: $friendRecommend, isLoading: $isLoading)';
+    return 'FriendState(friend: $friend, isLoading: $isLoading)';
   }
 
   @override
@@ -255,15 +494,14 @@ class _$FriendStateImpl implements _FriendState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FriendStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other._friendRecommend, _friendRecommend) &&
+            const DeepCollectionEquality().equals(other._friend, _friend) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_friendRecommend), isLoading);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_friend), isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -274,11 +512,11 @@ class _$FriendStateImpl implements _FriendState {
 
 abstract class _FriendState implements FriendState {
   const factory _FriendState(
-      {final List<FriendRecommendModel?> friendRecommend,
+      {final List<FriendRecommendModel?> friend,
       final bool isLoading}) = _$FriendStateImpl;
 
   @override
-  List<FriendRecommendModel?> get friendRecommend;
+  List<FriendRecommendModel?> get friend;
   @override
   bool get isLoading;
   @override

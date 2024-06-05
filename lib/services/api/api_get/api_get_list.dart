@@ -152,3 +152,83 @@ Future<List<FriendRecommendModel?>> apiGetFriendRecommend() async {
 
   return friendRecommend;
 }
+
+Future<List<FriendRecommendModel?>> apiGetMyFriend() async {
+  List<FriendRecommendModel> myFriend = [];
+
+  try {
+    final response = await ApiService.singleton.get(
+      ConstPathGet.myfriend,
+    );
+
+    if (!HelperChecker.empty(response?.body)) {
+      final List<dynamic> jsonData =
+          jsonDecode(response?.body.toString() ?? '');
+      myFriend =
+          jsonData.map((item) => FriendRecommendModel.fromJson(item)).toList();
+    }
+
+    return myFriend;
+  } catch (errors, stackTrace) {
+    HelperLog.logCatchErrors(
+      errors: errors,
+      stackTrace: stackTrace,
+    );
+  }
+
+  return myFriend;
+}
+
+Future<List<FriendRecommendModel?>> apiGetFriendSendToYou() async {
+  List<FriendRecommendModel> myFriend = [];
+
+  try {
+    final response = await ApiService.singleton.get(
+      ConstPathGet.friendSentToYou,
+    );
+
+    if (!HelperChecker.empty(response?.body)) {
+      final List<dynamic> jsonData =
+          jsonDecode(response?.body.toString() ?? '');
+      myFriend =
+          jsonData.map((item) => FriendRecommendModel.fromJson(item)).toList();
+    }
+
+    return myFriend;
+  } catch (errors, stackTrace) {
+    HelperLog.logCatchErrors(
+      errors: errors,
+      stackTrace: stackTrace,
+    );
+  }
+
+  return myFriend;
+}
+
+//
+
+Future<List<FriendRecommendModel?>> apiGetFriendYouSent() async {
+  List<FriendRecommendModel> myFriend = [];
+
+  try {
+    final response = await ApiService.singleton.get(
+      ConstPathGet.friendYouSent,
+    );
+
+    if (!HelperChecker.empty(response?.body)) {
+      final List<dynamic> jsonData =
+          jsonDecode(response?.body.toString() ?? '');
+      myFriend =
+          jsonData.map((item) => FriendRecommendModel.fromJson(item)).toList();
+    }
+
+    return myFriend;
+  } catch (errors, stackTrace) {
+    HelperLog.logCatchErrors(
+      errors: errors,
+      stackTrace: stackTrace,
+    );
+  }
+
+  return myFriend;
+}

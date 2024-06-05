@@ -14,5 +14,22 @@ class ListFriendCurent extends FriendEvent with _$ListFriendCurent {
   const factory ListFriendCurent() = _ListFriendCurent;
 }
 
+@freezed
+class ListFriendSendToYou extends FriendEvent with _$ListFriendSendToYou {
+  const factory ListFriendSendToYou() = _ListFriendSendToYou;
+}
+
+@freezed
+class ListFriendYouSent extends FriendEvent with _$ListFriendYouSent {
+  const factory ListFriendYouSent() = _ListFriendYouSent;
+}
+
+@freezed
+class AddFriend extends FriendEvent with _$AddFriend {
+  const factory AddFriend(int? friendId) = _AddFriend;
+}
+
+
+
   // const factory FriendEvent.friendCurent() = _FriendCurent;
   // const factory FriendEvent.friendSent() = _FriendSent;

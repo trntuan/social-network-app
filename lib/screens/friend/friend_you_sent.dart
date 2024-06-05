@@ -4,25 +4,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../bloc/friend/friend_bloc.dart';
-import '../../theme/theme_color.dart';
 import '../../widgets/custom_load.dart';
 import '../../widgets/widget_post/widget_post.dart';
 
-class FriendRecommend extends StatefulWidget {
-  const FriendRecommend({super.key});
+class YouSent extends StatefulWidget {
+  const YouSent({super.key});
 
   @override
-  State<FriendRecommend> createState() => _FriendRecommendState();
+  State<YouSent> createState() => _YouSentState();
 }
 
-class _FriendRecommendState extends State<FriendRecommend> {
+class _YouSentState extends State<YouSent> {
   // late final FriendBloc friendbloc = GetIt.instance.get<FriendBloc>();
   late final FriendBloc bloc = GetIt.instance.get<FriendBloc>();
 
   @override
   void initState() {
-    bloc.add(const ListFriendRecommend());
-    // friendbloc.add(const FriendRecommend());
+    bloc.add(const ListFriendYouSent());
+    // friendbloc.add(const YouSent());
     super.initState();
   }
 
@@ -72,16 +71,18 @@ class _FriendRecommendState extends State<FriendRecommend> {
                     child: Container(
                       padding: EdgeInsets.all(5.sp),
                       height: 100.sp,
-                      width: 150.sp,
+                      width: 200.sp,
                       decoration: BoxDecoration(
-                        color: ThemeColors.skyBlue,
+                        color: Colors.grey,
                         borderRadius: BorderRadius.circular(20.sp),
                       ),
-                      child: const Center(
+                      child: Center(
                         child: Text(
-                          'Kết bạn',
+                          'Hủy lời mời',
                           style: TextStyle(
+                            fontWeight: FontWeight.w900,
                             color: Colors.white,
+                            fontSize: 30.sp,
                           ),
                         ),
                       ),
