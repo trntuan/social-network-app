@@ -4,9 +4,12 @@ import '../../../../const/const_path.dart';
 import '../../../../models/posts/comment_model.dart';
 import '../../../helpers/helper_check.dart';
 import '../../../helpers/helper_log.dart';
+import '../../../models/chat/chat_model.dart';
+import '../../../models/messages/messages_model.dart';
 import '../../../models/posts/all_posts_model.dart';
 import '../../../models/posts/friend_recommend_model.dart';
 import '../../../models/posts/my_posts_model.dart';
+import '../../storage/my_data_storage.dart';
 import '../api_service.dart';
 
 Future<List<MyPostModel?>> apiGetAllMyPost() async {
@@ -126,6 +129,68 @@ Future<List<CommentsModel?>> apiGetComment({
 
   return comments;
 }
+
+//
+//
+
+Future<ChatModel?> apiGetchat(String? userId) async {
+  ChatModel? chat;
+  final params = {
+    'user1Id': '${MyDataStorage.singleton.userId}',
+    'user2Id': '${userId}',
+  };
+  try {
+    final response = await ApiService.singleton.get(
+      ConstPathGet.historyChat,
+      queryParams: params,
+    );
+
+    if (!HelperChecker.empty(response?.body)) {
+      final jsonData = jsonDecode(response?.body.toString() ?? '');
+
+      chat = ChatModel.fromJson(jsonData);
+    }
+
+    return chat;
+  } catch (errors, stackTrace) {
+    HelperLog.logCatchErrors(
+      errors: errors,
+      stackTrace: stackTrace,
+    );
+  }
+
+  return chat;
+}
+
+Future<List<MessagesModel?>> apiGetMessages() async {
+  List<MessagesModel> messages = [];
+  final params = {
+    'userId': '${MyDataStorage.singleton.userId}',
+  };
+  try {
+    final response = await ApiService.singleton.get(
+      ConstPathGet.chat,
+      queryParams: params,
+    );
+
+    if (!HelperChecker.empty(response?.body)) {
+      final List<dynamic> jsonData =
+          jsonDecode(response?.body.toString() ?? '');
+      messages = jsonData.map((item) => MessagesModel.fromJson(item)).toList();
+    }
+
+    return messages;
+  } catch (errors, stackTrace) {
+    HelperLog.logCatchErrors(
+      errors: errors,
+      stackTrace: stackTrace,
+    );
+  }
+
+  return messages;
+}
+
+//
 
 Future<List<FriendRecommendModel?>> apiGetFriendRecommend() async {
   List<FriendRecommendModel> friendRecommend = [];

@@ -168,7 +168,12 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   titlePost(
-                    onTap: () {},
+                    onTap: () async {
+                      await GetStores.navigator.pushNamed(
+                        ConstRouter.userDetail,
+                        extra: '${item?.postUserPost}',
+                      );
+                    },
                     avatar: item?.userAvatar,
                     name: item?.userDisplayName,
                   ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../const/const_router.dart';
+import '../../services/get_it/get_instance.dart';
 import '../friend/friend_home.dart';
 import '../home_page/home_page.dart';
 import '../setting/setting_screen.dart';
@@ -25,6 +27,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppbarHome(
+        onTapAction: () {
+          GetStores.navigator.pushNamed(ConstRouter.messages);
+        },
         bottom: TabBar(
           controller: _tabController,
           tabs: const <Widget>[

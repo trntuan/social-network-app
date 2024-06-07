@@ -6,4 +6,6 @@ class GetStores {
   /// singleton
 
   static ConfigNavigator get navigator => GetIt.instance.get<ConfigNavigator>();
+
+  // static SocketService get socket => GetIt.instance.get<SocketService>();
 }

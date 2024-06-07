@@ -4,6 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../bloc/friend/friend_bloc.dart';
+import '../../const/const_router.dart';
+import '../../models/params/param_open_chat.dart';
+import '../../services/get_it/get_instance.dart';
 import '../../theme/theme_color.dart';
 import '../../widgets/custom_load.dart';
 import '../../widgets/widget_post/widget_post.dart';
@@ -57,7 +60,12 @@ class _MyFriendState extends State<MyFriend> {
                   //   name: item?.displayMame,
                   // ),
                   title: titlePost(
-                    onTap: () {},
+                    onTap: () async {
+                      await GetStores.navigator.pushNamed(
+                        ConstRouter.userDetail,
+                        extra: '${item?.userId}',
+                      );
+                    },
                     avatar: item?.avatar,
                     name: item?.displayMame,
                   ),
@@ -91,12 +99,24 @@ class _MyFriendState extends State<MyFriend> {
                               width: 10.sp,
                             ),
                             Flexible(
-                              child: Text(
-                                'nhắn tin',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w900,
-                                  color: Colors.white,
-                                  fontSize: 30.sp,
+                              child: GestureDetector(
+                                onTap: () async {
+                                  await GetStores.navigator
+                                      .pushNamed<ParamOpenChat>(
+                                    ConstRouter.chat,
+                                    extra: ParamOpenChat(
+                                      "${item?.userId}",
+                                      item?.displayMame,
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  'nhắn tin',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w900,
+                                    color: Colors.white,
+                                    fontSize: 30.sp,
+                                  ),
                                 ),
                               ),
                             ),

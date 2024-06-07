@@ -5,14 +5,16 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'const/const_app.dart';
 import 'services/get_it/config_get_it.dart';
 import 'services/navigator/setup_navigator.dart';
+import 'services/socket/socket.dart';
 import 'theme/theme_color.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  WebSocketManager.instance.initializeSocketConnection();
   // Khởi tạo dữ liệu địa phương cho tiếng Việt
   await initializeDateFormatting('vi', null);
   configureGetIt();
+
   runApp(const MainApp());
 }
 

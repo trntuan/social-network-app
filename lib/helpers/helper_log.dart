@@ -50,6 +50,17 @@ class HelperLog {
     }
   }
 
+  static void logSocket(
+    String message, {
+    String tag = ConstTag.info,
+  }) {
+    if (ConstApp.isShowLog) {
+      log(
+        '$pink $tag\n$pink logInfo ::: $message $reset',
+      );
+    }
+  }
+
   // log using in test cant delete
   static void showLTest(
     String message, [

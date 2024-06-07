@@ -73,5 +73,3 @@ class CustomAppbarHome extends AppBar {
           ],
         );
 }
-
-mixin math {}
