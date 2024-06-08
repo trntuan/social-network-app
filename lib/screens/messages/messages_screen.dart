@@ -5,6 +5,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../bloc/messages/messages_bloc.dart';
 import '../../const/const_router.dart';
+import '../../helpers/helper_decode.dart';
 import '../../models/messages/messages_model.dart';
 import '../../models/params/param_open_chat.dart';
 import '../../services/get_it/get_instance.dart';
@@ -77,15 +78,49 @@ class _MessageScreenState extends State<MessageScreen> with ChatViewManager {
                           ),
                         ),
                       ),
-                      child: titlePost(
-                        onTap: () {
-                          GetStores.navigator.pushNamed<MessagesModel>(
-                            ConstRouter.chat,
-                            extra: item,
-                          );
-                        },
-                        avatar: item?.otherUserAvatar,
-                        name: item?.otherUserName,
+                      child: Column(
+                        children: [
+                          titlePost(
+                            onTap: () {
+                              GetStores.navigator.pushNamed<MessagesModel>(
+                                ConstRouter.chat,
+                                extra: item,
+                              );
+                            },
+                            avatar: item?.otherUserAvatar,
+                            name: item?.otherUserName,
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.only(left: 20.sp),
+                                  child: Text(
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    item?.messageText ?? '',
+                                    style: TextStyle(
+                                      fontSize: 40.sp,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 20.sp),
+                                child: Text(
+                                  HelperDecode.convertToVietnameseDateTime(
+                                          item?.timestamp) ??
+                                      '',
+                                  style: TextStyle(
+                                    fontSize: 40.sp,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
                       ),
                     ),
                   );
