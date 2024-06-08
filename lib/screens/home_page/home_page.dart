@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                             child: const Align(
                               alignment: Alignment.center,
                               child: Text(
-                                'Bạn có muốn đăng 1 bản tin mới không?',
+                                'Bạn có muốn đăng gì ?',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,

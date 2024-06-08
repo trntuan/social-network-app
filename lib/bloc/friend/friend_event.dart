@@ -29,6 +29,20 @@ class AddFriend extends FriendEvent with _$AddFriend {
   const factory AddFriend(int? friendId) = _AddFriend;
 }
 
+// accept friends
+
+@freezed
+class DeleteFriend extends FriendEvent with _$DeleteFriend {
+  const factory DeleteFriend(int? friendId) = _DeleteFriend;
+}
+
+// delete friends
+
+@freezed
+class AcceptFriend extends FriendEvent with _$AcceptFriend {
+  const factory AcceptFriend(int? friendId) = _AcceptFriend;
+}
+
 
 
   // const factory FriendEvent.friendCurent() = _FriendCurent;

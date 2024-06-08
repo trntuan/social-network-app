@@ -60,7 +60,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         msg: 'Đăng ký Thành công',
         useDeny: false,
         actionAccept: () {
-          GetStores.navigator.pushReplacementNamed(ConstRouter.home);
+          GetStores.navigator.goReplacementNamed(ConstRouter.splash);
         },
         //  onClosed: (p0) {
         //  GetInstance.navigator.pop(ConstRouter.home);

@@ -57,7 +57,7 @@ class _YouSentState extends State<YouSent> {
                   //   avatar: item?.avatar,
                   //   name: item?.displayMame,
                   // ),
-                  title: titlePost(
+                  title: titleUser(
                     onTap: () async {
                       await GetStores.navigator.pushNamed(
                         ConstRouter.userDetail,
@@ -95,7 +95,7 @@ class _YouSentState extends State<YouSent> {
                       ),
                     ),
                     onTap: () {
-                      bloc.add(AddFriend(item?.userId));
+                      bloc.add(DeleteFriend(item?.userId));
                     },
                   ),
                 ),

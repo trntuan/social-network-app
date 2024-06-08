@@ -9,6 +9,10 @@ A new Flutter project.
 - Android SDK 33
 - DevTools 2.25.0
 
+## Getting build SDK
+
+- flutter build apk --release
+
 ## Getting Started
 
 - Rebuild (freezed, serialization): flutter pub run build_runner watch

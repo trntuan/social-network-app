@@ -3,27 +3,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../bloc/friend/friend_bloc.dart';
+import '../../bloc/team_list/team_list_bloc.dart';
 import '../../const/const_router.dart';
-import '../../services/get_it/get_instance.dart';
 import '../../theme/theme_color.dart';
 import '../../widgets/custom_load.dart';
 import '../../widgets/widget_post/widget_post.dart';
 
-class FriendRecommend extends StatefulWidget {
-  const FriendRecommend({super.key});
+class MyTeam extends StatefulWidget {
+  const MyTeam({super.key});
 
   @override
-  State<FriendRecommend> createState() => _FriendRecommendState();
+  State<MyTeam> createState() => _MyTeamState();
 }
 
-class _FriendRecommendState extends State<FriendRecommend> {
-  // late final FriendBloc friendbloc = GetIt.instance.get<FriendBloc>();
-  late final FriendBloc bloc = GetIt.instance.get<FriendBloc>();
-
+class _MyTeamState extends State<MyTeam> {
+  late final TeamListBloc bloc = GetIt.instance.get<TeamListBloc>();
   @override
   void initState() {
-    bloc.add(const ListFriendRecommend());
+    bloc.add(const GetMyTeamList());
     // friendbloc.add(const FriendRecommend());
     super.initState();
   }
@@ -32,16 +29,17 @@ class _FriendRecommendState extends State<FriendRecommend> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => bloc,
-      child: BlocBuilder<FriendBloc, FriendState>(builder: (context, state) {
+      child:
+          BlocBuilder<TeamListBloc, TeamListState>(builder: (context, state) {
         return Scaffold(
             body: refreshList(
           emptyContent: '',
           // onRefresh: getData,
           // onLoad: () => bloc.add(const GetMorePost()),
           child: ListView.builder(
-            itemCount: state.friend.length,
+            itemCount: state.team?.length,
             itemBuilder: (context, index) {
-              final item = state.friend[index];
+              final item = state.team?[index];
               return Container(
                 height: 200.sp,
                 decoration: const BoxDecoration(
@@ -58,19 +56,19 @@ class _FriendRecommendState extends State<FriendRecommend> {
                   //   avatar: item?.avatar,
                   //   name: item?.displayMame,
                   // ),
-                  title: titleUser(
+                  title: titleTeam(
                     onTap: () async {
-                      await GetStores.navigator.pushNamed(
-                        ConstRouter.userDetail,
-                        extra: '${item?.userId}',
-                      );
+                      // await GetStores.navigator.pushNamed(
+                      //   ConstRouter.userDetail,
+                      //   extra: '${item?.userId}',
+                      // );
                     },
-                    avatar: item?.avatar,
-                    name: item?.displayMame,
+                    // avatar: item?.teamLogo,
+                    name: item?.teamTeamName,
                   ),
-                  subtitle: item?.commonFriends != null
+                  subtitle: item?.memberCount != null
                       ? Text(
-                          'có ${item?.commonFriends} bạn chung',
+                          'có ${item?.memberCount} thành viên',
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                         )
@@ -81,12 +79,12 @@ class _FriendRecommendState extends State<FriendRecommend> {
                       height: 100.sp,
                       width: 150.sp,
                       decoration: BoxDecoration(
-                        color: ThemeColors.skyBlue,
+                        color: Colors.amber,
                         borderRadius: BorderRadius.circular(20.sp),
                       ),
                       child: const Center(
                         child: Text(
-                          'Kết bạn',
+                          'rời nhóm',
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -94,7 +92,7 @@ class _FriendRecommendState extends State<FriendRecommend> {
                       ),
                     ),
                     onTap: () {
-                      bloc.add(AddFriend(item?.userId));
+                      bloc.add(OutTeam("${item?.teamTeamId}"));
                     },
                   ),
                 ),

@@ -51,12 +51,29 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
+    signingConfigs {
+     debug {
+         storeFile file('/home/wido/project/do_an/project/app/social_network_app/android/app/snw.keystore')
+         storePassword KEYSTORE_FILE
+         keyAlias KEYSTORE_PASSWORD
+         keyPassword KEYSTORE_PASSWORD
+     }
+        release {
+           storeFile file(KEYSTORE_FILE)
+           keyAlias KEY_ALIAS
+           storePassword KEYSTORE_PASSWORD
+           keyPassword KEY_ALIAS_PASSWORD
+       }
+   }
 
     buildTypes {
         debug {
+            signingConfig signingConfigs.release
             shrinkResources false 
         }
         release {
+            signingConfig signingConfigs.release
+            shrinkResources false 
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
         }

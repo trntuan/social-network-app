@@ -35,4 +35,8 @@ class HelperAction {
   static String avatarDefault(String? image) {
     return 'http://103.82.195.138:9000/social/${image ?? 'avatar_default.jpg'}';
   }
+
+  static String defaultTeam(String? image) {
+    return 'http://103.82.195.138:9000/social/${image ?? 'default_team.jpg'}';
+  }
 }

@@ -5,6 +5,7 @@ import '../../services/get_it/get_instance.dart';
 import '../friend/friend_home.dart';
 import '../home_page/home_page.dart';
 import '../setting/setting_screen.dart';
+import '../team/team_home.dart';
 import 'custom_appbar_home.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -66,9 +67,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         children: const <Widget>[
           HomePage(),
           FriendHome(),
-          Center(
-            child: Text("nhóm"),
-          ),
+          TeamHome(),
           Center(
             child: Text("thông báo"),
           ),

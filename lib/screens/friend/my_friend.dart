@@ -59,7 +59,7 @@ class _MyFriendState extends State<MyFriend> {
                   //   avatar: item?.avatar,
                   //   name: item?.displayMame,
                   // ),
-                  title: titlePost(
+                  title: titleUser(
                     onTap: () async {
                       await GetStores.navigator.pushNamed(
                         ConstRouter.userDetail,

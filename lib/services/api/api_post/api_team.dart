@@ -1,13 +1,15 @@
 import '../../../helpers/helper_log.dart';
 import '../../../models/response/response_message.dart';
+import '../../storage/my_data_storage.dart';
 import '../api_service.dart';
 
-Future<ResponseMessage> apiAcctionFriend(
-  int? friendId,
+Future<ResponseMessage> apiAcctionTeam(
+  String teamId,
   String path,
 ) async {
   final params = {
-    "friend_id": "$friendId",
+    "user_id": '${MyDataStorage.singleton.userId}',
+    "team_id": "$teamId",
   };
   final ResponseMessage responseMessage = ResponseMessage();
 

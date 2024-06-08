@@ -10,6 +10,11 @@ class ConstPathPost {
   static const chat = 'chat';
   static const sendMessage = 'chat/message';
   static const addFriend = 'user/add_friend';
+  static const confirmFriend = 'user/confirm_friend';
+  static const cancelFriend = 'user/cancel_friend';
+
+  static const outTeam = 'team/out_team';
+  static const joinTeam = 'team/join_team';
 }
 
 class ConstPathGet {
@@ -32,5 +37,7 @@ class ConstPathGet {
   static const friendSentToYou = 'user/friend_sent_to_you';
   static const friendYouSent = 'user/friend_you_sent';
 
-  //
+  //team
+  static const myTeam = 'team/my_teams_user';
+  static const teamRecommend = 'team/teams_recomend';
 }

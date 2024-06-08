@@ -9,8 +9,8 @@ class ConstApp {
   static const maxUploadSize = 5242880;
   static const isProduct = false;
 
-  static const apiAuthority = '103.82.195.138:3000';
-  // static const apiAuthority = '192.168.56.1:3000';
+  // static const apiAuthority = '103.82.195.138:3000';
+  static const apiAuthority = '192.168.56.1:3000';
 
   static const apiPath = '';
 }

@@ -9,6 +9,7 @@ import '../../../models/messages/messages_model.dart';
 import '../../../models/posts/all_posts_model.dart';
 import '../../../models/posts/friend_recommend_model.dart';
 import '../../../models/posts/my_posts_model.dart';
+import '../../../models/team/team_list_model.dart';
 import '../../storage/my_data_storage.dart';
 import '../api_service.dart';
 
@@ -296,4 +297,35 @@ Future<List<FriendRecommendModel?>> apiGetFriendYouSent() async {
   }
 
   return myFriend;
+}
+
+Future<List<TeamListModel?>> apiGetTeam(
+  String url,
+) async {
+  final params = {
+    'user_id': '${MyDataStorage.singleton.userId}',
+  };
+  List<TeamListModel> team = [];
+
+  try {
+    final response = await ApiService.singleton.get(
+      url,
+      queryParams: params,
+    );
+
+    if (!HelperChecker.empty(response?.body)) {
+      final List<dynamic> jsonData =
+          jsonDecode(response?.body.toString() ?? '');
+      team = jsonData.map((item) => TeamListModel.fromJson(item)).toList();
+    }
+
+    return team;
+  } catch (errors, stackTrace) {
+    HelperLog.logCatchErrors(
+      errors: errors,
+      stackTrace: stackTrace,
+    );
+  }
+
+  return team;
 }

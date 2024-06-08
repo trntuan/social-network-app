@@ -22,8 +22,9 @@ import 'package:social_network_app/bloc/post_detail/post_detail_bloc.dart'
 import 'package:social_network_app/bloc/post_new_letter/post_new_letter_bloc.dart'
     as _i11;
 import 'package:social_network_app/bloc/splash/splash_bloc.dart' as _i12;
+import 'package:social_network_app/bloc/team_list/team_list_bloc.dart' as _i13;
 import 'package:social_network_app/bloc/user_detail/user_detail_bloc.dart'
-    as _i13;
+    as _i14;
 import 'package:social_network_app/services/navigator/config_navigator.dart'
     as _i5;
 
@@ -48,7 +49,8 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i10.PostDetailBloc>(() => _i10.PostDetailBloc());
     gh.factory<_i11.PostNewLetterBloc>(() => _i11.PostNewLetterBloc());
     gh.factory<_i12.SplashBloc>(() => _i12.SplashBloc());
-    gh.factory<_i13.UserDetailBloc>(() => _i13.UserDetailBloc());
+    gh.factory<_i13.TeamListBloc>(() => _i13.TeamListBloc());
+    gh.factory<_i14.UserDetailBloc>(() => _i14.UserDetailBloc());
     return this;
   }
 }

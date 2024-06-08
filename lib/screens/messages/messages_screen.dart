@@ -110,8 +110,8 @@ class _MessageScreenState extends State<MessageScreen> with ChatViewManager {
                                 padding: EdgeInsets.only(right: 20.sp),
                                 child: Text(
                                   HelperDecode.convertToVietnameseDateTime(
-                                          item?.timestamp) ??
-                                      '',
+                                    item?.timestamp,
+                                  ),
                                   style: TextStyle(
                                     fontSize: 40.sp,
                                     color: Colors.grey,

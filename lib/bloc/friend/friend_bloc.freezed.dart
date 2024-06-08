@@ -378,6 +378,242 @@ abstract class _AddFriend implements AddFriend {
 }
 
 /// @nodoc
+mixin _$DeleteFriend {
+  int? get friendId => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $DeleteFriendCopyWith<DeleteFriend> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DeleteFriendCopyWith<$Res> {
+  factory $DeleteFriendCopyWith(
+          DeleteFriend value, $Res Function(DeleteFriend) then) =
+      _$DeleteFriendCopyWithImpl<$Res, DeleteFriend>;
+  @useResult
+  $Res call({int? friendId});
+}
+
+/// @nodoc
+class _$DeleteFriendCopyWithImpl<$Res, $Val extends DeleteFriend>
+    implements $DeleteFriendCopyWith<$Res> {
+  _$DeleteFriendCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? friendId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      friendId: freezed == friendId
+          ? _value.friendId
+          : friendId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DeleteFriendImplCopyWith<$Res>
+    implements $DeleteFriendCopyWith<$Res> {
+  factory _$$DeleteFriendImplCopyWith(
+          _$DeleteFriendImpl value, $Res Function(_$DeleteFriendImpl) then) =
+      __$$DeleteFriendImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int? friendId});
+}
+
+/// @nodoc
+class __$$DeleteFriendImplCopyWithImpl<$Res>
+    extends _$DeleteFriendCopyWithImpl<$Res, _$DeleteFriendImpl>
+    implements _$$DeleteFriendImplCopyWith<$Res> {
+  __$$DeleteFriendImplCopyWithImpl(
+      _$DeleteFriendImpl _value, $Res Function(_$DeleteFriendImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? friendId = freezed,
+  }) {
+    return _then(_$DeleteFriendImpl(
+      freezed == friendId
+          ? _value.friendId
+          : friendId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteFriendImpl implements _DeleteFriend {
+  const _$DeleteFriendImpl(this.friendId);
+
+  @override
+  final int? friendId;
+
+  @override
+  String toString() {
+    return 'DeleteFriend(friendId: $friendId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteFriendImpl &&
+            (identical(other.friendId, friendId) ||
+                other.friendId == friendId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, friendId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteFriendImplCopyWith<_$DeleteFriendImpl> get copyWith =>
+      __$$DeleteFriendImplCopyWithImpl<_$DeleteFriendImpl>(this, _$identity);
+}
+
+abstract class _DeleteFriend implements DeleteFriend {
+  const factory _DeleteFriend(final int? friendId) = _$DeleteFriendImpl;
+
+  @override
+  int? get friendId;
+  @override
+  @JsonKey(ignore: true)
+  _$$DeleteFriendImplCopyWith<_$DeleteFriendImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$AcceptFriend {
+  int? get friendId => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AcceptFriendCopyWith<AcceptFriend> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AcceptFriendCopyWith<$Res> {
+  factory $AcceptFriendCopyWith(
+          AcceptFriend value, $Res Function(AcceptFriend) then) =
+      _$AcceptFriendCopyWithImpl<$Res, AcceptFriend>;
+  @useResult
+  $Res call({int? friendId});
+}
+
+/// @nodoc
+class _$AcceptFriendCopyWithImpl<$Res, $Val extends AcceptFriend>
+    implements $AcceptFriendCopyWith<$Res> {
+  _$AcceptFriendCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? friendId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      friendId: freezed == friendId
+          ? _value.friendId
+          : friendId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AcceptFriendImplCopyWith<$Res>
+    implements $AcceptFriendCopyWith<$Res> {
+  factory _$$AcceptFriendImplCopyWith(
+          _$AcceptFriendImpl value, $Res Function(_$AcceptFriendImpl) then) =
+      __$$AcceptFriendImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int? friendId});
+}
+
+/// @nodoc
+class __$$AcceptFriendImplCopyWithImpl<$Res>
+    extends _$AcceptFriendCopyWithImpl<$Res, _$AcceptFriendImpl>
+    implements _$$AcceptFriendImplCopyWith<$Res> {
+  __$$AcceptFriendImplCopyWithImpl(
+      _$AcceptFriendImpl _value, $Res Function(_$AcceptFriendImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? friendId = freezed,
+  }) {
+    return _then(_$AcceptFriendImpl(
+      freezed == friendId
+          ? _value.friendId
+          : friendId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AcceptFriendImpl implements _AcceptFriend {
+  const _$AcceptFriendImpl(this.friendId);
+
+  @override
+  final int? friendId;
+
+  @override
+  String toString() {
+    return 'AcceptFriend(friendId: $friendId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AcceptFriendImpl &&
+            (identical(other.friendId, friendId) ||
+                other.friendId == friendId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, friendId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AcceptFriendImplCopyWith<_$AcceptFriendImpl> get copyWith =>
+      __$$AcceptFriendImplCopyWithImpl<_$AcceptFriendImpl>(this, _$identity);
+}
+
+abstract class _AcceptFriend implements AcceptFriend {
+  const factory _AcceptFriend(final int? friendId) = _$AcceptFriendImpl;
+
+  @override
+  int? get friendId;
+  @override
+  @JsonKey(ignore: true)
+  _$$AcceptFriendImplCopyWith<_$AcceptFriendImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$FriendState {
   List<FriendRecommendModel?> get friend => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
