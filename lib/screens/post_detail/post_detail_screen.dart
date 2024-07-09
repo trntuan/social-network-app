@@ -174,40 +174,38 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
         // itemCount: 50,
         itemBuilder: (context, index) {
           final comment = state.comments?[index];
-          return Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    titlePost(
-                      avatar: comment?.userAvatar,
-                      name: comment?.userDisplayName,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20.sp),
-                      child: Text(
-                        HelperDecode.convertToVietnameseDateTime(
-                            comment?.commentsCreatedDate.toString()),
-                        style: const TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey,
-                        ),
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  titlePost(
+                    avatar: comment?.userAvatar,
+                    name: comment?.userDisplayName,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20.sp),
+                    child: Text(
+                      HelperDecode.convertToVietnameseDateTime(
+                          comment?.commentsCreatedDate.toString()),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey,
                       ),
                     ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 120.sp, bottom: 50.sp),
-                  child: ExpandableText("${comment?.commentsContent}"),
-                ),
-                Container(
-                  color: Colors.grey,
-                  width: 1.sw,
-                  height: 1.sp,
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 120.sp, bottom: 50.sp),
+                child: ExpandableText("${comment?.commentsContent}"),
+              ),
+              Container(
+                color: Colors.grey,
+                width: 1.sw,
+                height: 1.sp,
+              ),
+            ],
           );
         });
   }

@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../bloc/team_list/team_list_bloc.dart';
-import '../../const/const_router.dart';
 import '../../theme/theme_color.dart';
 import '../../widgets/custom_load.dart';
 import '../../widgets/widget_post/widget_post.dart';
